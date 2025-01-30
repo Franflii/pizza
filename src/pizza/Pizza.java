@@ -9,22 +9,19 @@ public class Pizza {
 	private String ingredientes;
 	private double precio;
 
-	private int contador=1;
-	
+	private int contador = 1;
+
 //Constructor 
 
 	public Pizza(String nombre, String ingredientes, double precio) {
-		this.id=contador++;
+		this.id = contador++;
 		this.nombre = nombre;
 		this.ingredientes = ingredientes;
 		this.precio = precio;
-		
-		//Vladi
 
-		
-		
+		// Vladi
+
 	}
-	
 
 	// Getters y setter
 
@@ -42,11 +39,8 @@ public class Pizza {
 
 	public void setIngredientes(String ingredientes) {
 
-<<<<<<< Updated upstream
-		if (ingredientes == null || ingredientes.isBlank()) {
-=======
 		if (this.ingredientes == null || ingredientes.isBlank()) {
->>>>>>> Stashed changes
+
 			throw new IllegalArgumentException("La pizza tiene que tener ingredientes");
 
 		}
@@ -64,9 +58,9 @@ public class Pizza {
 		if (this.precio > 0) {
 			throw new IllegalArgumentException("El precio de las pizzas debe ser más de 0€");
 		}
-		
+
 		this.precio = precio;
-		
+
 	}
 
 //Métodos

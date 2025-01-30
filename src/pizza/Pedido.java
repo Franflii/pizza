@@ -11,10 +11,9 @@ public class Pedido {
 	private TipoPedido tipo;
 	private List<Pizza> pizzaPedida;
 
-
 	private int contador = 1;
 
-	public Pedido(Cliente cliente,  String tipo) {
+	public Pedido(Cliente cliente, String tipo) {
 		this.id = contador++;
 		setCliente(cliente);
 		setTipo(tipo);
@@ -34,7 +33,6 @@ public class Pedido {
 		return total;
 	}
 
-
 	public String getTipo() {
 		return this.tipo.toString();
 	}
@@ -43,16 +41,13 @@ public class Pedido {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}
 
-
-	
-	
 	public void addPizza(Pizza pizzaNueva) {
-		if (pizzaNueva==null) {
+		if (pizzaNueva == null) {
 			throw new IllegalArgumentException("No puede aver pedido sin pizza");
 		}
-		
+
 		this.pizzaPedida.add(pizzaNueva);
-		this.total+=pizzaNueva.getPrecio();
+		this.total += pizzaNueva.getPrecio();
 	}
 
 }

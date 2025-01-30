@@ -1,5 +1,6 @@
 package pizza;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pizzeria {
@@ -7,16 +8,13 @@ public class Pizzeria {
 	private List<Pizza> pizza;
 	private List<Cliente> cliente;
 	private List<Pedido> pedido;
-	
-	//Constructores
-	
-	
+
+	// Constructores
+
 	public Pizzeria() {
-		
+		this.pizza = new ArrayList<Pizza>();
 	}
 
-	
-	
 	public List<Pizza> getPizza() {
 		return pizza;
 	}
@@ -40,30 +38,29 @@ public class Pizzeria {
 	public void setPedido(List<Pedido> pedido) {
 		this.pedido = pedido;
 	}
-	
-	
-	//Metodos
-	
-	
+
+	// Metodos
+
 	public void verPizzas() {
-		
+
 		System.out.println("Lista de Pizzas disponibles: " + pizza);
-		
+
 	}
-	
+
 	public void VerClientes() {
-		
+
 	}
-	
+
 	public void VerPedidos() {
-		
+
 	}
+
 	public void addPizza(Pizza pizzaNueva) {
-		if (pizzaNueva==null) {
-			throw new IllegalArgumentException("No puede aver pedido sin pizza");
+		if (pizzaNueva == null) {
+			throw new IllegalArgumentException("No puede haber pedido sin pizza");
 		}
-		
+
 		this.pizza.add(pizzaNueva);
 	}
-	
+
 }

@@ -19,7 +19,6 @@ public class Pizza {
 		this.ingredientes = ingredientes;
 		this.precio = precio;
 
-
 	}
 
 	// Getters y setter
@@ -62,8 +61,6 @@ public class Pizza {
 
 	}
 
-	
-
 //Métodos
 
 	@Override
@@ -71,7 +68,5 @@ public class Pizza {
 		return "Pizza [nombre=" + nombre + ", ingredientes=" + ingredientes + ", precio=" + precio + ", contador="
 				+ contador + "]";
 	}
-	
-	
 
 }

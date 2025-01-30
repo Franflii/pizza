@@ -1,5 +1,6 @@
 package pizza;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
 
 		int option;
 		do {
-			System.out.print("Elige una opción: ");
+			System.out.println("Elige una opción: ");
 			System.out.println("1. Nueva pizza");
 			System.out.println("2. Nuevo cliente");
 			System.out.println("3. Realizar un pedido");
@@ -38,7 +39,9 @@ public class Main {
 
 			switch (option) {
 			case 1:
-				System.out.println("Opción 1: Nueva pizza");
+				Pizza p1 = nuevaPizza(scanner);
+				PizasLosGayos.addPizza(p1);
+
 				break;
 			case 2:
 				System.out.println("Opción 2: Nuevo cliente");
@@ -47,7 +50,8 @@ public class Main {
 				System.out.println("Opción 3: Realizar un pedido");
 				break;
 			case 4:
-				System.out.println("Opción 4: Ver pizzas");
+				verPizzas(PizasLosGayos.getPizza());
+
 				break;
 			case 5:
 				System.out.println("Opción 5: Ver pedidos");
@@ -96,4 +100,22 @@ public class Main {
 		} while (option != 17);
 
 	}
+
+	public static Pizza nuevaPizza(Scanner scanner) {
+		System.out.println("Nombre");
+		String nombre = scanner.next();
+		System.out.println("Ingredientes");
+		String ingredientes = scanner.next();
+		System.out.println("Precio");
+		double precio = scanner.nextDouble();
+
+		return new Pizza(nombre, ingredientes, precio);
+	}
+
+	public static void verPizzas(List<Pizza> pizzas) {
+		for (Pizza p : pizzas) {
+			System.out.println(p);
+		}
+	}
+
 }

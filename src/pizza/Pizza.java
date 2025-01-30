@@ -7,7 +7,7 @@ public class Pizza {
 	private static int id;
 	private String nombre;
 	private String ingredientes;
-	double precio;
+	private double precio;
 
 	private int contador=1;
 	

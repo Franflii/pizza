@@ -1,7 +1,7 @@
 package pizza;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.List;
 
 public class Pedido {
 	private static int id;
@@ -9,14 +9,15 @@ public class Pedido {
 	private LocalDate fecha;
 	private double total;
 	private TipoPedido tipo;
+	private List<Pizza> pizzaPedida;
+
 
 	private int contador = 1;
 
-	public Pedido(Cliente cliente, double total, String tipo) {
+	public Pedido(Cliente cliente,  String tipo) {
 		this.id = contador++;
 		setCliente(cliente);
 		setTipo(tipo);
-		setTotal(total);
 		this.fecha = LocalDate.now();
 
 	}
@@ -25,7 +26,7 @@ public class Pedido {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	private void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
@@ -33,9 +34,6 @@ public class Pedido {
 		return total;
 	}
 
-	public void setTotal(double total) {
-		this.total = total;
-	}
 
 	public String getTipo() {
 		return this.tipo.toString();
@@ -45,12 +43,16 @@ public class Pedido {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}
 
-	public int getContador() {
-		return contador;
-	}
 
-	public void setContador(int contador) {
-		this.contador = contador;
+	
+	
+	public void addPizza(Pizza pizzaNueva) {
+		if (pizzaNueva==null) {
+			throw new IllegalArgumentException("No puede aver pedido sin pizza");
+		}
+		
+		this.pizzaPedida.add(pizzaNueva);
+		this.total+=pizzaNueva.getPrecio();
 	}
 
 }

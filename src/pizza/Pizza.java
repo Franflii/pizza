@@ -63,16 +63,16 @@ public class Pizza {
 
 	}
 
+	
+
 //Métodos
 
 	@Override
 	public String toString() {
-		return "Pizza: " + nombre;
+		return "Pizza [nombre=" + nombre + ", ingredientes=" + ingredientes + ", precio=" + precio + ", contador="
+				+ contador + "]";
 	}
 	
-	public static void creaPizza(String nombre,String ingredientes, double precio) {
-		Pizza p1=new Pizza(nombre, ingredientes, precio);
-	}
 	
 
 }

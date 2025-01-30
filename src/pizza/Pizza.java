@@ -16,7 +16,7 @@ public class Pizza {
 		this.ingredientes = ingredientes;
 		this.precio = precio;
 
-		//huertas
+		
 		
 	}
 	
@@ -53,10 +53,11 @@ public class Pizza {
 	public void setPrecio(double precio) {
 
 		if (this.precio > 0) {
-
+			throw new IllegalArgumentException("El precio de las pizzas debe ser más de 0€");
 		}
-
+		
 		this.precio = precio;
+		
 	}
 
 //Métodos

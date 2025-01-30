@@ -1,5 +1,7 @@
 package pizza;
 
+import java.util.ArrayList;
+
 public class Cliente {
 
 	//Atributos
@@ -9,6 +11,9 @@ public class Cliente {
 	private String email;
 	private String telefono;
 	private double dineroDisponible;
+	
+	
+	//Atributos estáticos
 	
 	
 	//Constructores
@@ -27,6 +32,10 @@ public class Cliente {
 
 
 	private void setNombre(String nombre) {
+		
+		if(nombre == null || nombre.isBlank() == true) {
+			throw new IllegalArgumentException("El nombre no puede estar en blanco ni puede ser nulo.");
+		}
 		this.nombre = nombre;
 	}
 
@@ -37,6 +46,10 @@ public class Cliente {
 
 
 	private void setDireccion(String direccion) {
+		
+		if(direccion == null || direccion.isBlank() == true) {
+			throw new IllegalArgumentException("La direccion no puede estar en blanco ni puede ser nula.");
+		}
 		this.direccion = direccion;
 	}
 
@@ -47,6 +60,10 @@ public class Cliente {
 
 
 	private void setEmail(String email) {
+		
+		if(email == null || email.isBlank() == true) {
+			throw new IllegalArgumentException("El email no puede estar en blanco ni puede ser nulo.");
+		}
 		this.email = email;
 	}
 
@@ -57,6 +74,10 @@ public class Cliente {
 
 
 	private void setTelefono(String telefono) {
+		
+		if(telefono == null || telefono.isBlank() == true) {
+			throw new IllegalArgumentException("El telefono no puede estar en blanco ni puede ser nulo.");
+		}
 		this.telefono = telefono;
 	}
 
@@ -67,8 +88,17 @@ public class Cliente {
 
 
 	private void setDineroDisponible(double dineroDisponible) {
+		
+		if(dineroDisponible < 0) {
+			throw new IllegalArgumentException("No tienes dinero disponible");
+		}
 		this.dineroDisponible = dineroDisponible;
 	}
+	
+	
+	//Metodos
+	
+	
 	
 	
 	

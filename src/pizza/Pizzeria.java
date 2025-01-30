@@ -46,6 +46,10 @@ public class Pizzeria {
 	
 	public void VerPizzas() {
 		
+		System.out.println("Lista de Pizzas disponibles: ");
+		for(Pizza p: pizza) {
+			System.out.println(p);
+		}
 	}
 	
 	public void VerClientes() {

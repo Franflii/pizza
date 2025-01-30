@@ -12,7 +12,7 @@ public class Main {
 			System.out.println("1. Nueva pizza");
 			System.out.println("2. Nuevo cliente");
 			System.out.println("3. Realizar un pedido");
-			System.out.println("4. Ver pizzas");
+			System.out.println("4. Ver pizzas ");
 			System.out.println("5. Ver pedidos");
 			System.out.println("6. Ver clientes");
 			System.out.println("7. Consultar cliente mediante su teléfono");

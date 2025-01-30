@@ -42,7 +42,11 @@ public class Pizza {
 
 	public void setIngredientes(String ingredientes) {
 
+<<<<<<< Updated upstream
 		if (ingredientes == null || ingredientes.isBlank()) {
+=======
+		if (this.ingredientes == null || ingredientes.isBlank()) {
+>>>>>>> Stashed changes
 			throw new IllegalArgumentException("La pizza tiene que tener ingredientes");
 
 		}

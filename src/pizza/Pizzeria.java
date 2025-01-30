@@ -10,7 +10,7 @@ public class Pizzeria {
 	
 	//Constructores
 
-	public Pizzeria(List Pizza, List cliente, List pedido) {
+	public Pizzeria() {
 		
 	}
 
@@ -44,7 +44,7 @@ public class Pizzeria {
 	//Metodos
 	
 	
-	public void VerPizzas() {
+	public void verPizzas() {
 		
 		System.out.println("Lista de Pizzas disponibles: ");
 		for(Pizza p: pizza) {

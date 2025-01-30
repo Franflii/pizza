@@ -26,12 +26,14 @@ public class Main {
 			System.out.println("15. Pizza más barata");
 			System.out.println("16. Último pedido realizado");
 			System.out.println("17. Salir");
+			Pizzeria p1=new Pizzeria();
 
 			option = scanner.nextInt();
 
 			switch (option) {
 			case 1:
 				System.out.println("Opción 1: Nueva pizza");
+				Pizza a4 =new Pizza("mARGARITA", "Queso y tomate", 7.5);
 				break;
 			case 2:
 				System.out.println("Opción 2: Nuevo cliente");
@@ -41,6 +43,7 @@ public class Main {
 				break;
 			case 4:
 				System.out.println("Opción 4: Ver pizzas");
+				p1.verPizzas();
 				break;
 			case 5:
 				System.out.println("Opción 5: Ver pedidos");

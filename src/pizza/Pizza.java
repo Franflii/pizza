@@ -16,6 +16,8 @@ public class Pizza {
 		this.ingredientes = ingredientes;
 		this.precio = precio;
 
+		//huertas
+		
 	}
 	
 

@@ -42,7 +42,7 @@ public class Pizza {
 
 	public void setIngredientes(String ingredientes) {
 
-		if (this.ingredientes == null || this.ingredientes.isBlank()) {
+		if (ingredientes == null || ingredientes.isBlank()) {
 			throw new IllegalArgumentException("La pizza tiene que tener ingredientes");
 
 		}

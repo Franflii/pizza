@@ -9,7 +9,7 @@ public class Main {
         int option;
 
         do {
-            System.out.print("Elige una opción: ");
+            System.out.println("Elige una opción: ");
             System.out.println("1. Nueva pizza");
             System.out.println("2. Nuevo cliente");
             System.out.println("3. Realizar un pedido");

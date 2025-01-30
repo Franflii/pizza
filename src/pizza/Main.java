@@ -6,7 +6,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		
+		Pizzeria logayos =new Pizzeria()
+;		
+		
+		
+		Pizza p1= new Pizza("Margarita", "Tomate y queso", 10);
+		Pizza p2 = new Pizza("4 QUESOS", "Quesos", 7.5);
+		Pizza p3 =new Pizza("Barbacoa", "Salsa barbacoa", 34);
+		
+		logayos.addPizza(p1);
+		logayos.addPizza(p2);
+		logayos.addPizza(p3);
+
+		
 		int option;
+		int opntion2;
 		do {
 			System.out.print("Elige una opción: ");
 			System.out.println("1. Nueva pizza");
@@ -26,14 +41,24 @@ public class Main {
 			System.out.println("15. Pizza más barata");
 			System.out.println("16. Último pedido realizado");
 			System.out.println("17. Salir");
-			Pizzeria p1=new Pizzeria();
 
 			option = scanner.nextInt();
 
 			switch (option) {
 			case 1:
 				System.out.println("Opción 1: Nueva pizza");
-				Pizza a4 =new Pizza("mARGARITA", "Queso y tomate", 7.5);
+				System.out.println("Que pizza quieres");
+				
+				System.out.println("1"+p1);
+				System.out.println("2"+p2);
+				opntion2 = scanner.nextInt();
+				
+				switch(opntion2) {
+				case 1:
+					
+					
+				}
+				
 				break;
 			case 2:
 				System.out.println("Opción 2: Nuevo cliente");
@@ -43,7 +68,8 @@ public class Main {
 				break;
 			case 4:
 				System.out.println("Opción 4: Ver pizzas");
-				p1.verPizzas();
+				logayos.verPizzas();
+				
 				break;
 			case 5:
 				System.out.println("Opción 5: Ver pedidos");

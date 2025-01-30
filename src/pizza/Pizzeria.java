@@ -9,7 +9,8 @@ public class Pizzeria {
 	private List<Pedido> pedido;
 	
 	//Constructores
-
+	
+	
 	public Pizzeria() {
 		
 	}
@@ -46,10 +47,8 @@ public class Pizzeria {
 	
 	public void verPizzas() {
 		
-		System.out.println("Lista de Pizzas disponibles: ");
-		for(Pizza p: pizza) {
-			System.out.println(p);
-		}
+		System.out.println("Lista de Pizzas disponibles: " + pizza);
+		
 	}
 	
 	public void VerClientes() {
@@ -58,6 +57,13 @@ public class Pizzeria {
 	
 	public void VerPedidos() {
 		
+	}
+	public void addPizza(Pizza pizzaNueva) {
+		if (pizzaNueva==null) {
+			throw new IllegalArgumentException("No puede aver pedido sin pizza");
+		}
+		
+		this.pizza.add(pizzaNueva);
 	}
 	
 }

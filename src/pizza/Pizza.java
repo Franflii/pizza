@@ -69,5 +69,10 @@ public class Pizza {
 	public String toString() {
 		return "Pizza: " + nombre;
 	}
+	
+	public static void creaPizza(String nombre,String ingredientes, double precio) {
+		Pizza p1=new Pizza(nombre, ingredientes, precio);
+	}
+	
 
 }

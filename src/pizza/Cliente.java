@@ -20,6 +20,11 @@ public class Cliente {
 	
 	public Cliente(String nombre, String direccion,String email,String telefono,String dineroDisponible) {
 		
+		setNombre(nombre);
+		setDireccion(direccion);
+		setEmail(email);
+		setTelefono(telefono);
+		setDineroDisponible(getDineroDisponible());
 	}
 
 	

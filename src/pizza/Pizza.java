@@ -58,7 +58,7 @@ public class Pizza {
 	public void setPrecio(double precio) {
 		
 		if (this.precio > 0) {
-			
+			throw new IllegalArgumentException("La pizza debe de costar más de 0€");
 			
 			
 		}
@@ -71,6 +71,9 @@ public class Pizza {
 
 
 
+	
+
+
 
 
 
@@ -78,12 +81,16 @@ public class Pizza {
 
 
 
+
+
+	
+	
 @Override
 public String toString() {
-    return "Pizza: " + nombre;
+	return "Pizza [nombre=" + nombre + ", ingredientes=" + ingredientes + ", precio=" + precio + "]";
+
 }
-	
-	
+
 }
 
 

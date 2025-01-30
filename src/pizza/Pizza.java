@@ -9,19 +9,17 @@ public class Pizza {
 	double precio;
 
 //Constructor 
-	
-	public Pizza (String nombre, String ingredientes, double precio) {
-		
+
+	public Pizza(String nombre, String ingredientes, double precio) {
+
 		this.nombre = nombre;
 		this.ingredientes = ingredientes;
 		this.precio = precio;
-		
+
 	}
 
-	
-	
-	//Getters y setter
-	
+	// Getters y setter
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -35,20 +33,14 @@ public class Pizza {
 	}
 
 	public void setIngredientes(String ingredientes) {
-	
+
 		if (this.ingredientes == null || this.ingredientes.isBlank()) {
 			throw new IllegalArgumentException("La pizza tiene que tener ingredientes");
-			
-			
+
 		}
-		
-		
+
 		this.ingredientes = ingredientes;
-	
-	
-	
-	
-	
+
 	}
 
 	public double getPrecio() {
@@ -56,45 +48,19 @@ public class Pizza {
 	}
 
 	public void setPrecio(double precio) {
-		
+
 		if (this.precio > 0) {
-			
-			
-			
+
 		}
-		
-		
-		
-		
+
 		this.precio = precio;
 	}
 
-
-
-
-
-
 //Métodos
 
+	@Override
+	public String toString() {
+		return "Pizza: " + nombre;
+	}
 
-
-@Override
-public String toString() {
-    return "Pizza: " + nombre;
 }
-	
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-

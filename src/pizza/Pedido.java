@@ -9,17 +9,16 @@ public class Pedido {
 	private LocalDate fecha;
 	private double total;
 	private TipoPedido tipo;
-	
-	private int contador=1;
-	
-	public Pedido (Cliente cliente,double total,String tipo) {
-		this.id=contador++;
+
+	private int contador = 1;
+
+	public Pedido(Cliente cliente, double total, String tipo) {
+		this.id = contador++;
 		setCliente(cliente);
 		setTipo(tipo);
 		setTotal(total);
-		this.fecha=LocalDate.now();
-		
-		
+		this.fecha = LocalDate.now();
+
 	}
 
 	public Cliente getCliente() {
@@ -53,6 +52,5 @@ public class Pedido {
 	public void setContador(int contador) {
 		this.contador = contador;
 	}
-	
 
 }

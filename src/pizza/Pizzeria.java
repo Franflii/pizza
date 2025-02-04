@@ -80,8 +80,9 @@ public class Pizzeria {
 		String tlf = scanner.next();
 		for (Cliente cliente2 : cliente) {
 			if (cliente2.getTelefono() == tlf) {
-				System.out.println(cliente2);
 			}
+			System.out.println("El cliente es "+cliente);
+
 		}
 	}
 

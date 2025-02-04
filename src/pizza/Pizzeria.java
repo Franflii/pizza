@@ -93,7 +93,7 @@ public class Pizzeria {
 			if (p.getIngredientes().contains(ingrediente)) {
 
 			}
-
+			System.out.println("La pizza" + pizza + "si contiene ese ingrediente");	
 		}
 
 	}
@@ -106,8 +106,10 @@ public class Pizzeria {
 			if (p.getIngredientes() != null && p.getIngredientes().contains(ingrediente)) {
 
 			}
-
+				System.out.println("La pizza" + pizza + "no contiene ese ingrediente");
+		
 		}
+		
 
 	}
 

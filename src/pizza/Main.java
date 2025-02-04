@@ -42,6 +42,8 @@ public class Main {
 				Pizza p1 = nuevaPizza(scanner);
 				PizasLosGayos.addPizza(p1);
 
+				System.out.println("Opción 1: Nueva pizza");
+
 				break;
 			case 2:
 				System.out.println("Opción 2: Nuevo cliente");

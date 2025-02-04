@@ -116,12 +116,6 @@ public class Main {
 		return new Pizza(nombre, ingredientes, precio);
 	}
 
-	public static void verPizzas(List<Pizza> pizzas) {
-		for (Pizza p : pizzas) {
-			System.out.println(p);
-		}
-	}
-
 	public static Cliente nuevoCliente(Scanner scanner) {
 		System.out.println("Nombre: ");
 		String nombre = scanner.next();
@@ -135,6 +129,12 @@ public class Main {
 		double dineroDisponible = scanner.nextDouble();
 
 		return new Cliente(nombre, direccion, email, telefono, dineroDisponible);
+	}
+
+	public static void verPizzas(List<Pizza> pizzas) {
+		for (Pizza p : pizzas) {
+			System.out.println(p);
+		}
 	}
 
 	public static void verPedido(List<Pedido> pedidos) {

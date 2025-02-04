@@ -64,7 +64,8 @@ public class Main {
 				System.out.println("Opción 6: Ver clientes");
 				break;
 			case 7:
-				System.out.println("Opción 7: Consultar cliente mediante su teléfono");
+				PizasLosGayos.consultarTelefono(scanner);
+				
 				break;
 			case 8:
 				System.out.println("Opción 8: Buscar pizzas con ingrediente");

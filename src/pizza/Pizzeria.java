@@ -83,4 +83,36 @@ public class Pizzeria {
 		}
 	}
 
+	public void consultarPizzaIngrediente  (String ingrediente) {
+		
+		for (Pizza p : this.pizza) {
+			if(p.getIngredientes().contains(ingrediente)) {
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+	}
+	
+	
+public void consultarPizzanoIngrediente (String ingrediente) {
+		
+		for (Pizza p : this.pizza) {
+			if (p.getIngredientes() != null && p.getIngredientes().contains(ingrediente)){
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+	}
+		
+	
 }

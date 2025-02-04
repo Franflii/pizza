@@ -43,7 +43,7 @@ public class Pedido {
 
 	public void addPizza(Pizza pizzaNueva) {
 		if (pizzaNueva == null) {
-			throw new IllegalArgumentException("No puede aver pedido sin pizza");
+			throw new IllegalArgumentException("No puede haber pedido sin pizza");
 		}
 
 		this.pizzaPedida.add(pizzaNueva);

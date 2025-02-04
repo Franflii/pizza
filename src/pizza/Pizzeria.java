@@ -58,9 +58,8 @@ public class Pizzeria {
 		this.cliente.add(clienteNuevo);
 	}
 
-	
 	public void VerClientes() {
-		
+
 		System.out.println("Clientes registrados: " + cliente);
 	}
 
@@ -75,46 +74,41 @@ public class Pizzeria {
 
 		this.pizza.add(pizzaNueva);
 	}
+
 	public void consultarTelefono(Scanner scanner) {
 		System.out.println("Dime el numero que quieres buscar");
 		String tlf = scanner.next();
 		for (Cliente cliente2 : cliente) {
-			if (cliente2.getTelefono()==tlf) {
+			if (cliente2.getTelefono() == tlf) {
 				System.out.println(cliente2);
 			}
 		}
 	}
 
-	public void consultarPizzaIngrediente  (String ingrediente) {
-		
+	public void consultarPizzaIngrediente(Scanner scanner) {
+		System.out.println("Dime un ingrediente");
+		String ingrediente = scanner.next();
+
 		for (Pizza p : this.pizza) {
-			if(p.getIngredientes().contains(ingrediente)) {
-				
+			if (p.getIngredientes().contains(ingrediente)) {
+
 			}
-			
-			
+
 		}
-		
-		
-		
-		
+
 	}
-	
-	
-public void consultarPizzanoIngrediente (String ingrediente) {
-		
+
+	public void consultarPizzanoIngrediente(Scanner scanner) {
+		System.out.println("Dime un ingrediente");
+		String ingrediente = scanner.next();
+
 		for (Pizza p : this.pizza) {
-			if (p.getIngredientes() != null && p.getIngredientes().contains(ingrediente)){
-				
+			if (p.getIngredientes() != null && p.getIngredientes().contains(ingrediente)) {
+
 			}
-			
-			
+
 		}
-		
-		
-		
-		
+
 	}
-		
-	
+
 }

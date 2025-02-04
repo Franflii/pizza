@@ -66,18 +66,18 @@ public class Main {
 				break;
 			case 7:
 				PizasLosGayos.consultarTelefono(scanner);
-				
+
 				break;
 			case 8:
 				System.out.println("Opción 8: Buscar pizzas con ingrediente");
-					PizasLosGayos.consultarPizzaIngrediente();
-				
+				PizasLosGayos.consultarPizzaIngrediente(scanner);
+
 				break;
 			case 9:
 				System.out.println("Opción 9: Buscar pizzas sin ingrediente");
-				
-				PizasLosGayos.consultarPizzanoIngrediente();
-				
+
+				PizasLosGayos.consultarPizzanoIngrediente(scanner);
+
 				break;
 			case 10:
 				System.out.println("Opción 10: Pedidos de hoy");
@@ -137,9 +137,9 @@ public class Main {
 
 		return new Cliente(nombre, direccion, email, telefono, dineroDisponible);
 	}
-	
+
 	public static void verCliente(List<Cliente> clientes) {
-		for (Cliente c: clientes) {
+		for (Cliente c : clientes) {
 			System.out.println(c);
 		}
 	}

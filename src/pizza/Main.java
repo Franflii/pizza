@@ -61,6 +61,7 @@ public class Main {
 				verPedido(PizasLosGayos.getPedido());
 				break;
 			case 6:
+				verCliente(PizasLosGayos.getCliente());
 				System.out.println("Opción 6: Ver clientes");
 				break;
 			case 7:
@@ -129,6 +130,12 @@ public class Main {
 		double dineroDisponible = scanner.nextDouble();
 
 		return new Cliente(nombre, direccion, email, telefono, dineroDisponible);
+	}
+	
+	public static void verCliente(List<Cliente> clientes) {
+		for (Cliente c: clientes) {
+			System.out.println(c);
+		}
 	}
 
 	public static void verPizzas(List<Pizza> pizzas) {

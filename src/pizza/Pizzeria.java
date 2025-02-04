@@ -13,6 +13,8 @@ public class Pizzeria {
 
 	public Pizzeria() {
 		this.pizza = new ArrayList<Pizza>();
+		this.cliente = new ArrayList<Cliente>();
+		this.pedido = new ArrayList<Pedido>();
 	}
 
 	public List<Pizza> getPizza() {

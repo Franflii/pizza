@@ -10,11 +10,30 @@ public class Main {
 		menu();
 	}
 
+	public static void cargarDatos(Pizzeria p) {
+	    // Agregar clientes de prueba
+	    p.addCliente(new Cliente("Juan", "Calle 123", "juan@example.com", "123456789", 50.0));
+	    p.addCliente(new Cliente("Maria", "Avenida 456", "maria@example.com", "987654321", 75.5));
+	    p.addCliente(new Cliente("Carlos", "Plaza 789", "carlos@example.com", "456123789", 100.0));
+	    p.addCliente(new Cliente("Ana", "Paseo 321", "ana@example.com", "321654987", 30.0));
+	    p.addCliente(new Cliente("Luis", "Bulevar 654", "luis@example.com", "789321456", 120.0));
+
+	    // Agregar pizzas de prueba
+	    p.addPizza(new Pizza("Margarita", "Tomate, Queso Mozzarella, Albahaca", 8.5));
+	    p.addPizza(new Pizza("Pepperoni", "Tomate, Queso Mozzarella, Pepperoni", 9.5));
+	    p.addPizza(new Pizza("Cuatro Quesos", "Mozzarella, Gorgonzola, Parmesano, Cheddar", 10.0));
+	    p.addPizza(new Pizza("Hawaiana", "Tomate, Queso Mozzarella, Jamón, Piña", 9.0));
+	    p.addPizza(new Pizza("BBQ Pollo", "Salsa BBQ, Queso, Pollo, Cebolla", 11.0));
+	}
+
+	
 	public static void menu() {
 		Scanner scanner = new Scanner(System.in);
 		Pizzeria PizasLosGayos = new Pizzeria();
 		Cliente Clientes = new Cliente();
 
+		cargarDatos(PizasLosGayos);
+		
 		int option;
 		do {
 			System.out.println("Elige una opción: ");

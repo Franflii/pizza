@@ -70,9 +70,14 @@ public class Main {
 				break;
 			case 8:
 				System.out.println("Opción 8: Buscar pizzas con ingrediente");
+					PizasLosGayos.consultarPizzaIngrediente();
+				
 				break;
 			case 9:
 				System.out.println("Opción 9: Buscar pizzas sin ingrediente");
+				
+				PizasLosGayos.consultarPizzanoIngrediente();
+				
 				break;
 			case 10:
 				System.out.println("Opción 10: Pedidos de hoy");

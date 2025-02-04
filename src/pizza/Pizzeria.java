@@ -2,6 +2,7 @@ package pizza;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Pizzeria {
 
@@ -74,5 +75,46 @@ public class Pizzeria {
 
 		this.pizza.add(pizzaNueva);
 	}
+	public void consultarTelefono(Scanner scanner) {
+		System.out.println("Dime el numero que quieres buscar");
+		String tlf = scanner.next();
+		for (Cliente cliente2 : cliente) {
+			if (cliente2.getTelefono()==tlf) {
+				System.out.println(cliente2);
+			}
+		}
+	}
 
+	public void consultarPizzaIngrediente  (String ingrediente) {
+		
+		for (Pizza p : this.pizza) {
+			if(p.getIngredientes().contains(ingrediente)) {
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+	}
+	
+	
+public void consultarPizzanoIngrediente (String ingrediente) {
+		
+		for (Pizza p : this.pizza) {
+			if (p.getIngredientes() != null && p.getIngredientes().contains(ingrediente)){
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+	}
+		
+	
 }

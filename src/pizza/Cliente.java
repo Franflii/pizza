@@ -21,10 +21,9 @@ public class Cliente {
 		setTelefono(telefono);
 		setDineroDisponible(getDineroDisponible());
 	}
-	
+
 	public Cliente() {
 
-		
 	}
 
 	// Setter getter
@@ -89,10 +88,11 @@ public class Cliente {
 		this.dineroDisponible = dineroDisponible;
 	}
 
-	
-
-
 	// Metodos
-	
-	
+
+	@Override
+	public String toString() {
+		return "Cliente [nombre=" + nombre + ", direccion=" + direccion + ", email=" + email + ", telefono=" + telefono
+				+ ", dineroDisponible=" + dineroDisponible + "]";
+	}
 }

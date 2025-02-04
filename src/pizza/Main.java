@@ -62,7 +62,6 @@ public class Main {
 				break;
 			case 6:
 				verCliente(PizasLosGayos.getCliente());
-				System.out.println("Opción 6: Ver clientes");
 				break;
 			case 7:
 				PizasLosGayos.consultarTelefono(scanner);

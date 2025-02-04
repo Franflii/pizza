@@ -110,10 +110,10 @@ public class Main {
 				System.out.println("Opción 13: Pedidos a domicilio");
 				break;
 			case 14:
-				System.out.println("Opción 14: Pizza más cara");
+				System.out.println(Pizza.getPizzaMasCara());
 				break;
 			case 15:
-				System.out.println("Opción 15: Pizza más barata");
+				System.out.println(Pizza.getPizzaMasBarata());
 				break;
 			case 16:
 				System.out.println("Opción 16: Último pedido realizado");

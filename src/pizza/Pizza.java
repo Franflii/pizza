@@ -4,12 +4,14 @@ public class Pizza {
 
 //Atributos
 
-	private static int id;
+	private  int id;
 	private String nombre;
 	private String ingredientes;
 	private double precio;
+	private static Pizza pizzaMasCara;
+	private static Pizza pizzaMasBarata;
 
-	private int contador = 1;
+	private  static int contador = 1;
 
 //Constructor 
 
@@ -18,10 +20,39 @@ public class Pizza {
 		this.nombre = nombre;
 		this.ingredientes = ingredientes;
 		this.precio = precio;
+		if (pizzaMasCara==null) {
+			pizzaMasCara=this;
+			
+		}
+		if (this.precio>pizzaMasCara.precio) {
+			pizzaMasCara=this;
+		}
+		if (pizzaMasBarata==null) {
+			pizzaMasBarata=this;
+			
+		}
+		if (this.precio>pizzaMasBarata.precio) {
+			pizzaMasBarata=this;
+		}
+		
+		
+		
 
 	}
 
 	// Getters y setter
+
+	public static Pizza getPizzaMasBarata() {
+		return pizzaMasBarata;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public static Pizza getPizzaMasCara() {
+		return pizzaMasCara;
+	}
 
 	public String getNombre() {
 		return nombre;

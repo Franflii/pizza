@@ -70,14 +70,15 @@ public class Main {
 				PizasLosGayos.addCliente(c1);
 				break;
 			case 3:
-				System.out.println("Opción 3: Realizar un pedido");
+				Pedido pedido= nuevoPedido(scanner);
+				PizasLosGayos.addPedido(pedido);
 				break;
 			case 4:
 				verPizzas(PizasLosGayos.getPizza());
 
 				break;
 			case 5:
-				verPedido(PizasLosGayos.getPedido());
+				verPedidos(PizasLosGayos.getPedido());
 				break;
 			case 6:
 				verCliente(PizasLosGayos.getCliente());
@@ -155,6 +156,16 @@ public class Main {
 
 		return new Cliente(nombre, direccion, email, telefono, dineroDisponible);
 	}
+	
+	public static Pedido nuevoPedido(Scanner scanner) {
+		System.out.println("Cliente: ");
+		Cliente c1 = nuevoCliente(scanner);
+		System.out.println("Tipo de pizza");
+		String tipo = scanner.next();
+		System.out.println("Pizza");
+		Pizza p1=nuevaPizza(scanner);
+		return new Pedido(c1, tipo, p1);
+	}
 
 	public static void verCliente(List<Cliente> clientes) {
 		for (Cliente c : clientes) {
@@ -168,7 +179,7 @@ public class Main {
 		}
 	}
 
-	public static void verPedido(List<Pedido> pedidos) {
+	public static void verPedidos(List<Pedido> pedidos) {
 		for (Pedido pedi : pedidos) {
 			System.out.println(pedi);
 		}

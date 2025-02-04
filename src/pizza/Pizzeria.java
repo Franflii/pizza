@@ -57,6 +57,10 @@ public class Pizzeria {
 
 		this.cliente.add(clienteNuevo);
 	}
+	
+	public void addPedido(Pedido pedidoNuevo) {
+		this.pedido.add(pedidoNuevo);
+	}
 
 	public void VerClientes() {
 
@@ -64,7 +68,7 @@ public class Pizzeria {
 	}
 
 	public void VerPedidos() {
-
+		System.out.println("Pedido " + pedido);
 	}
 
 	public void addPizza(Pizza pizzaNueva) {

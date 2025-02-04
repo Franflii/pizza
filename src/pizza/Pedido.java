@@ -4,20 +4,21 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Pedido {
-	private static int id;
+	private  int id;
 	private Cliente cliente;
 	private LocalDate fecha;
 	private double total;
 	private TipoPedido tipo;
-	private List<Pizza> pizzaPedida;
+	private Pizza pizzaPedida;
 
-	private int contador = 1;
+	private static int contador = 1;
 
-	public Pedido(Cliente cliente, String tipo) {
+	public Pedido(Cliente cliente, String tipo, Pizza pizza) {
 		this.id = contador++;
 		setCliente(cliente);
 		setTipo(tipo);
 		this.fecha = LocalDate.now();
+		this.pizzaPedida=pizza;
 
 	}
 
@@ -41,13 +42,14 @@ public class Pedido {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}
 
-	public void addPizza(Pizza pizzaNueva) {
-		if (pizzaNueva == null) {
-			throw new IllegalArgumentException("No puede haber pedido sin pizza");
-		}
-
-		this.pizzaPedida.add(pizzaNueva);
-		this.total += pizzaNueva.getPrecio();
+	@Override
+	public String toString() {
+		return "Pedido [id=" + id + ", cliente=" + cliente + ", fecha=" + fecha + ", total=" + total + ", tipo=" + tipo
+				+ ", pizzaPedida=" + pizzaPedida + "]";
 	}
+	
+	
+
+	
 
 }

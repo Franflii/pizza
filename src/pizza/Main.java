@@ -47,17 +47,7 @@ public class Main {
 			switch (option) {
 			case 1:
 				System.out.println("Opción 1: Nueva pizza");
-				System.out.println("Que pizza quieres");
 				
-				System.out.println("1"+p1);
-				System.out.println("2"+p2);
-				opntion2 = scanner.nextInt();
-				
-				switch(opntion2) {
-				case 1:
-					
-					
-				}
 				
 				break;
 			case 2:

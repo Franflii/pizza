@@ -47,8 +47,18 @@ public class Pizzeria {
 
 	}
 
-	public void VerClientes() {
+	public void addCliente(Cliente clienteNuevo) {
+		if (clienteNuevo == null) {
+			throw new IllegalArgumentException("No puede ser null el cliente");
+		}
 
+		this.cliente.add(clienteNuevo);
+	}
+
+	
+	public void VerClientes() {
+		
+		System.out.println("Clientes registrados: " + cliente);
 	}
 
 	public void VerPedidos() {

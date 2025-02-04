@@ -13,7 +13,8 @@ public class Main {
 	public static void menu() {
 		Scanner scanner = new Scanner(System.in);
 		Pizzeria PizasLosGayos = new Pizzeria();
-
+		Cliente Clientes = new Cliente();
+		
 		int option;
 		do {
 			System.out.println("Elige una opción: ");
@@ -44,7 +45,8 @@ public class Main {
 
 				break;
 			case 2:
-				System.out.println("Opción 2: Nuevo cliente");
+				Cliente c1 = nuevoCliente(scanner);
+				PizasLosGayos.addCliente(c1);
 				break;
 			case 3:
 				System.out.println("Opción 3: Realizar un pedido");
@@ -117,5 +119,22 @@ public class Main {
 			System.out.println(p);
 		}
 	}
+	
+	public static Cliente nuevoCliente(Scanner scanner) {
+		System.out.println("Nombre: ");
+		String nombre = scanner.next();
+		System.out.println("Dirección: ");
+		String direccion = scanner.next();
+		System.out.println("Email: ");
+		String email = scanner.next();
+		System.out.println("Telefono: ");
+		String telefono = scanner.next();
+		System.out.println("Saldo disponible: ");
+		double dineroDisponible = scanner.nextDouble();
+		
+		return new Cliente(nombre, direccion, email, telefono, dineroDisponible);
+	}
+	
+	
 
 }

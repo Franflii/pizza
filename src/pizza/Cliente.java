@@ -15,13 +15,18 @@ public class Cliente {
 	// Atributos estáticos
 	// Constructores
 
-	public Cliente(String nombre, String direccion, String email, String telefono, String dineroDisponible) {
+	public Cliente(String nombre, String direccion, String email, String telefono, double dineroDisponible) {
 
 		setNombre(nombre);
 		setDireccion(direccion);
 		setEmail(email);
 		setTelefono(telefono);
 		setDineroDisponible(getDineroDisponible());
+	}
+	
+	public Cliente() {
+
+		
 	}
 
 	// Setter getter
@@ -86,6 +91,10 @@ public class Cliente {
 		this.dineroDisponible = dineroDisponible;
 	}
 
-	// Metodos
+	
 
+
+	// Metodos
+	
+	
 }

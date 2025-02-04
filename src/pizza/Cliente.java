@@ -1,7 +1,5 @@
 package pizza;
 
-import java.util.ArrayList;
-
 public class Cliente {
 
 	// Atributos

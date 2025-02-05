@@ -1,6 +1,7 @@
 package pizza;
 
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
 
 public class Pedido {
@@ -14,12 +15,18 @@ public class Pedido {
 	private static int contador = 1;
 
 	public Pedido(Cliente cliente, String tipo, Pizza pizza) {
+		
 		this.id = contador++;
 		setCliente(cliente);
 		setTipo(tipo);
 		this.fecha = LocalDate.now();
 		this.pizzaPedida=pizza;
 
+		
+	}
+	
+	public Pedido(int idCliente, String tipo) {
+		
 	}
 
 	public Cliente getCliente() {
@@ -41,6 +48,10 @@ public class Pedido {
 	public void setTipo(String tipo) {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}
+	
+	
+	
+	
 
 	@Override
 	public String toString() {

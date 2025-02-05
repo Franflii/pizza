@@ -95,7 +95,7 @@ public class Main {
 			case 9:
 				System.out.println("Opción 9: Buscar pizzas sin ingrediente");
 
-				PizasLosGayos.consultarPizzanoIngrediente(scanner);
+				PizasLosGayos.consultarPizzaNOIngrediente(scanner);
 
 				break;
 			case 10:
@@ -160,7 +160,7 @@ public class Main {
 	public static Pedido nuevoPedido(Scanner scanner) {
 		System.out.println("Cliente: ");
 		Cliente c1 = nuevoCliente(scanner);
-		System.out.println("Tipo de pizza");
+		System.out.println("Tipo Pedido");
 		String tipo = scanner.next();
 		System.out.println("Pizza");
 		Pizza p1=nuevaPizza(scanner);

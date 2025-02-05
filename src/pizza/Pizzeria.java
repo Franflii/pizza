@@ -57,7 +57,7 @@ public class Pizzeria {
 
 		this.cliente.add(clienteNuevo);
 	}
-	
+
 	public void addPedido(Pedido pedidoNuevo) {
 		this.pedido.add(pedidoNuevo);
 	}
@@ -82,40 +82,58 @@ public class Pizzeria {
 	public void consultarTelefono(Scanner scanner) {
 		System.out.println("Dime el numero que quieres buscar");
 		String tlf = scanner.next();
-		for (Cliente cliente2 : cliente) {
-			if (cliente2.getTelefono() == tlf) {
-			}
-			System.out.println("El cliente es "+cliente);
+		boolean encontrado = false;
 
+		for (Cliente cliente2 : cliente) {
+			if (cliente2.getTelefono().equals(tlf)) {
+				System.out.println("El cliente es: " + cliente2);
+				encontrado = true;
+				break;
+			}
+		}
+
+		if (!encontrado) {
+			System.out.println("No se ha encontrado ningún cliente con ese número de teléfono.");
 		}
 	}
 
 	public void consultarPizzaIngrediente(Scanner scanner) {
 		System.out.println("Dime un ingrediente");
 		String ingrediente = scanner.next();
+		boolean encontrado = false;
 
-		for (Pizza p : this.pizza) {
+		for (Pizza p : pizza) {
 			if (p.getIngredientes().contains(ingrediente)) {
 
+				System.out.println("La pizza" + p + "si contiene ese ingrediente");
+				encontrado = true;
 			}
-			System.out.println("La pizza" + pizza + "si contiene ese ingrediente");	
+		}
+		if (!encontrado) {
+			System.out.println("No se ha encontrado ninguna pizza con ese ingrediente");
 		}
 
 	}
 
-	public void consultarPizzanoIngrediente(Scanner scanner) {
+	public void consultarPizzaNOIngrediente(Scanner scanner) {
 		System.out.println("Dime un ingrediente");
 		String ingrediente = scanner.next();
+		boolean encontrado = true;
 
-		for (Pizza p : this.pizza) {
+		for (Pizza p : pizza) {
+
 			if (p.getIngredientes() != null && p.getIngredientes().contains(ingrediente)) {
 
 			}
-				System.out.println("La pizza" + pizza + "no contiene ese ingrediente");
-		
+
+			System.out.println("La pizza" + p + "no contiene ese ingrediente");
+			encontrado = false;
 		}
-		
+
+		if (!encontrado) {
+			System.out.println("No hay pizzas que no lleven ese ingrediente");
+
+		}
 
 	}
-
 }

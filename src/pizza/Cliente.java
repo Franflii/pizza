@@ -3,7 +3,8 @@ package pizza;
 public class Cliente {
 
 	// Atributos
-
+	
+	private int id;
 	private String nombre;
 	private String direccion;
 	private String email;
@@ -11,15 +12,21 @@ public class Cliente {
 	private double dineroDisponible;
 
 	// Atributos estáticos
+	private static int contador=1;
 	// Constructores
 
 	public Cliente(String nombre, String direccion, String email, String telefono, double dineroDisponible) {
+		this.id=contador++;
 
 		setNombre(nombre);
 		setDireccion(direccion);
 		setEmail(email);
 		setTelefono(telefono);
 		setDineroDisponible(getDineroDisponible());
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public Cliente() {

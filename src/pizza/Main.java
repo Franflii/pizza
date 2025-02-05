@@ -70,8 +70,8 @@ public class Main {
 				PizasLosGayos.addCliente(c1);
 				break;
 			case 3:
-				Pedido pedido= nuevoPedido(scanner);
-				PizasLosGayos.addPedido(pedido);
+				//Pedido pedido= nuevoPedido(scanner);
+				//PizasLosGayos.addPedido(pedido);
 				break;
 			case 4:
 				verPizzas(PizasLosGayos.getPizza());
@@ -157,14 +157,19 @@ public class Main {
 		return new Cliente(nombre, direccion, email, telefono, dineroDisponible);
 	}
 	
-	public static Pedido nuevoPedido(Scanner scanner) {
-		System.out.println("Cliente: ");
-		Cliente c1 = nuevoCliente(scanner);
-		System.out.println("Tipo Pedido");
+	public static void nuevoPedido(Scanner scanner) {
+		System.out.println("Dime el id de cliente");
+		int idPizza;
+		int idCliente = scanner.nextInt();
+		
+		System.out.println("Donde te la vas a comer");
 		String tipo = scanner.next();
-		System.out.println("Pizza");
-		Pizza p1=nuevaPizza(scanner);
-		return new Pedido(c1, tipo, p1);
+		
+		do {
+			System.out.println("Pide una piza:");
+			idPizza= scanner.nextInt();
+		} while (idPizza==18);
+		//return new Pedido(idCliente, null, null)
 	}
 
 	public static void verCliente(List<Cliente> clientes) {

@@ -9,6 +9,7 @@ public class Pizzeria {
 	private List<Pizza> pizza;
 	private List<Cliente> cliente;
 	private List<Pedido> pedido;
+	private Cliente clientee;
 
 	// Constructores
 
@@ -136,4 +137,17 @@ public class Pizzeria {
 		}
 
 	}
+	public  Cliente estaIdCliente(int idcCliente) {
+		boolean esta=false;
+		Cliente clienteEsta=clientee;
+		for (Cliente cliente2 : this.cliente) {
+			if (cliente2.getId()==idcCliente) {
+				esta=true;
+				clienteEsta=cliente2;
+			}
+		}
+		return clienteEsta;
+	}
+
+	
 }

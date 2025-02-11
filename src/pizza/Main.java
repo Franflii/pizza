@@ -160,15 +160,7 @@ public class Main {
 	}
 
 	public static void nuevoPedido(Scanner scanner, Pizzeria pizzeria) {
-		if (pizzeria.getCliente().isEmpty()) {
-			System.out.println("No hay clientes registrados.");
-			return;
-		}
-
-		if (pizzeria.getPizza().isEmpty()) {
-			System.out.println("No hay pizzas disponibles.");
-			return;
-		}
+		
 
 		System.out.println("Lista de clientes:");
 		for (Cliente cliente : pizzeria.getCliente()) {

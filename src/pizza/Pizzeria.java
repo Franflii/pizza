@@ -117,37 +117,33 @@ public class Pizzeria {
 	}
 
 	public void consultarPizzaNOIngrediente(Scanner scanner) {
-		System.out.println("Dime un ingrediente");
-		String ingrediente = scanner.next();
-		boolean encontrado = true;
+	    System.out.println("Dime un ingrediente que no deba contener la pizza:");
+	    String ingredienteExcluido = scanner.next();  
+	    boolean encontrado = false;
 
-		for (Pizza p : pizza) {
+	    for (Pizza p : pizza) {
+	        if (!p.getIngredientes().contains(ingredienteExcluido)) {
+	            System.out.println("La pizza " + p + " no contiene ese ingrediente.");
+	            encontrado = true;
+	        }
+	    }
 
-			if (p.getIngredientes() != null && p.getIngredientes().contains(ingrediente)) {
-
-			}
-
-			System.out.println("La pizza" + p + "no contiene ese ingrediente");
-			encontrado = false;
-		}
-
-		if (!encontrado) {
-			System.out.println("No hay pizzas que no lleven ese ingrediente");
-
-		}
-
+	    if (!encontrado) {
+	        System.out.println("No se ha encontrado ninguna pizza que no contenga el ingrediente: " + ingredienteExcluido);
+	    }
 	}
-	public  Cliente estaIdCliente(int idcCliente) {
-		boolean esta=false;
-		Cliente clienteEsta=clientee;
+
+
+	public Cliente estaIdCliente(int idcCliente) {
+		boolean esta = false;
+		Cliente clienteEsta = clientee;
 		for (Cliente cliente2 : this.cliente) {
-			if (cliente2.getId()==idcCliente) {
-				esta=true;
-				clienteEsta=cliente2;
+			if (cliente2.getId() == idcCliente) {
+				esta = true;
+				clienteEsta = cliente2;
 			}
 		}
 		return clienteEsta;
 	}
 
-	
 }

@@ -94,11 +94,11 @@ public class Main {
 
 				break;
 			case 9:
-				System.out.println("Opción 9: Buscar pizzas sin ingrediente");
-
-				PizasLosGayos.consultarPizzaNOIngrediente(scanner);
-
-				break;
+				  System.out.print("Ingresa el ingrediente a excluir: ");
+                  String ingr = scanner.nextLine();
+                  PizasLosGayos.consultarPizzaNOIngrediente(scanner);
+                  break;
+				
 			case 10:
 				System.out.println("Opción 10: Pedidos de hoy");
 				break;

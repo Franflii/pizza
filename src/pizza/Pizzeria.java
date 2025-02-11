@@ -117,22 +117,22 @@ public class Pizzeria {
 	}
 
 	public void consultarPizzaNOIngrediente(Scanner scanner) {
-	    System.out.println("Dime un ingrediente que no deba contener la pizza:");
-	    String ingredienteExcluido = scanner.next();  
-	    boolean encontrado = false;
+		System.out.println("Dime un ingrediente que no deba contener la pizza:");
+		String ingredienteExcluido = scanner.next();
+		boolean encontrado = false;
 
-	    for (Pizza p : pizza) {
-	        if (!p.getIngredientes().contains(ingredienteExcluido)) {
-	            System.out.println("La pizza " + p + " no contiene ese ingrediente.");
-	            encontrado = true;
-	        }
-	    }
+		for (Pizza p : pizza) {
+			if (!p.getIngredientes().contains(ingredienteExcluido)) {
+				System.out.println("La pizza " + p + " no contiene ese ingrediente.");
+				encontrado = true;
+			}
+		}
 
-	    if (!encontrado) {
-	        System.out.println("No se ha encontrado ninguna pizza que no contenga el ingrediente: " + ingredienteExcluido);
-	    }
+		if (!encontrado) {
+			System.out.println(
+					"No se ha encontrado ninguna pizza que no contenga el ingrediente: " + ingredienteExcluido);
+		}
 	}
-
 
 	public Cliente estaIdCliente(int idcCliente) {
 		boolean esta = false;

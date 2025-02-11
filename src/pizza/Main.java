@@ -119,7 +119,7 @@ public class Main {
 				System.out.println(Pizza.getPizzaMasBarata());
 				break;
 			case 16:
-				System.out.println("Opción 16: Último pedido realizado");
+				ultimoPedido(PizasLosGayos.getPedido());
 				break;
 			case 17:
 				System.out.println("Saliendo del programa...");
@@ -251,6 +251,11 @@ public class Main {
 	    if (!hayPedidosHoy) {
 	        System.out.println("No se han realizado pedidos hoy.");
 	    }
+	}
+	
+	public static void ultimoPedido(List<Pedido> pedidos) {
+		Pedido ultimoPedido=pedidos.get(pedidos.size()-1);
+		System.out.println("Ultimo pedido realizado"+ ultimoPedido);
 	}
 
 }

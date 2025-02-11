@@ -189,6 +189,10 @@ public class Pizzeria {
 	        System.out.println("No hay pedidos para llevar a domicilio.");
 	    }
 	}
+	public void ultimoPedido(List<Pedido> pedidos) {
+		Pedido ultimoPedido=pedidos.get(pedidos.size()-1);
+		System.out.println("Ultimo pedido realizado"+ ultimoPedido);
+	}
 
 
 }

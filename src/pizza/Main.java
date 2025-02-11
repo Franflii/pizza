@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Main {
 
+	private static final Pizzeria Pizzeria = null;
+
 	public static void main(String[] args) {
 
 		menu();
@@ -70,9 +72,8 @@ public class Main {
 				PizasLosGayos.addCliente(c1);
 				break;
 			case 3:
-				//Pedido pedido= nuevoPedido(scanner);
-				//PizasLosGayos.addPedido(pedido);
-				break;
+				nuevoPedido(scanner, PizasLosGayos);
+                break;
 			case 4:
 				verPizzas(PizasLosGayos.getPizza());
 
@@ -157,20 +158,68 @@ public class Main {
 		return new Cliente(nombre, direccion, email, telefono, dineroDisponible);
 	}
 	
-	public static void nuevoPedido(Scanner scanner) {
-		System.out.println("Dime el id de cliente");
-		int idPizza;
-		int idCliente = scanner.nextInt();
-		
-		System.out.println("Donde te la vas a comer");
-		String tipo = scanner.next();
-		
-		do {
-			System.out.println("Pide una piza:");
-			idPizza= scanner.nextInt();
-		} while (idPizza==18);
-		//return new Pedido(idCliente, null, null)
-	}
+	public static void nuevoPedido(Scanner scanner, Pizzeria pizzeria) {
+        if (pizzeria.getCliente().isEmpty()) {
+            System.out.println("No hay clientes registrados.");
+            return;
+        }
+
+        if (pizzeria.getPizza().isEmpty()) {
+            System.out.println("No hay pizzas disponibles.");
+            return;
+        }
+
+        System.out.println("Lista de clientes:");
+        for (Cliente cliente : pizzeria.getCliente()) {
+            System.out.println("ID: " + cliente.getId() + ", Nombre: " + cliente.getNombre());
+        }
+
+        System.out.print("Introduce el ID del cliente: ");
+        int idCliente = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+
+        Cliente clienteSeleccionado = null;
+        for (Cliente cliente : pizzeria.getCliente()) {
+            if (cliente.getId() == idCliente) {
+                clienteSeleccionado = cliente;
+                break;
+            }
+        }
+
+        if (clienteSeleccionado == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+
+        System.out.println("Lista de pizzas:");
+        for (Pizza pizza : pizzeria.getPizza()) {
+            System.out.println("ID: " + pizza.getId() + ", Nombre: " + pizza.getNombre() + ", Precio: " + pizza.getPrecio() + "€");
+        }
+
+        System.out.print("Introduce el ID de la pizza: ");
+        int idPizza = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+
+        Pizza pizzaSeleccionada = null;
+        for (Pizza pizza : pizzeria.getPizza()) {
+            if (pizza.getId() == idPizza) {
+                pizzaSeleccionada = pizza;
+                break;
+            }
+        }
+
+        if (pizzaSeleccionada == null) {
+            System.out.println("Pizza no encontrada.");
+            return;
+        }
+
+        System.out.print("Introduce el tipo de pedido (LOCAL, DOMICILIO, RECOGER): ");
+        String tipo = scanner.nextLine().toUpperCase();
+
+        Pedido pedido = new Pedido(clienteSeleccionado, tipo, pizzaSeleccionada);
+        pizzeria.addPedido(pedido);
+        System.out.println("Pedido añadido con éxito.");
+    }
 
 	public static void verCliente(List<Cliente> clientes) {
 		for (Cliente c : clientes) {

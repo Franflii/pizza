@@ -24,10 +24,10 @@ public class Pizza {
 			pizzaMasCara=this;
 			
 		}
-		if (this.precio>pizzaMasCara.precio) {
+		if (pizzaMasCara == null || this.precio > pizzaMasCara.precio) {
 			pizzaMasCara=this;
 		}
-		if (pizzaMasBarata==null) {
+		if (pizzaMasBarata==null || this.precio < pizzaMasBarata.precio) {
 			pizzaMasBarata=this;
 			
 		}

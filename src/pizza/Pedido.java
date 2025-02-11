@@ -1,6 +1,7 @@
 package pizza;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Pedido {
 	private int id;
@@ -9,6 +10,7 @@ public class Pedido {
 	private double total;
 	private TipoPedido tipo;
 	private Pizza pizzaPedida;
+	private List<Pizza> pizzas;
 
 	private static int contador = 1;
 	private int ultimoPedido = 0;
@@ -20,6 +22,7 @@ public class Pedido {
 		setTipo(tipo);
 		this.fecha = LocalDate.now();
 		this.pizzaPedida = pizza;
+		this.pizzas.add(pizza);
 
 	}
 

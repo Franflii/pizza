@@ -145,50 +145,51 @@ public class Pizzeria {
 		}
 		return clienteEsta;
 	}
-
 	public void verPedidosConsumidosLocal() {
-		boolean encontrado = false;
+	    boolean encontrado = false;
 
-		for (Pedido pedido : pedido) {
-			if ("LOCAL".equalsIgnoreCase(pedido.getTipo())) {
-				System.out.println(pedido);
-				encontrado = true;
-			}
-		}
+	    for (Pedido pedido : pedido) {
+	        if ("LOCAL".equalsIgnoreCase(pedido.getTipo())) {
+	            System.out.println(pedido);
+	            encontrado = true;
+	        }
+	    }
 
-		if (!encontrado) {
-			System.out.println("No hay pedidos consumidos en el local.");
-		}
+	    if (!encontrado) {
+	        System.out.println("No hay pedidos consumidos en el local.");
+	    }
 	}
-
+	
 	public void verPedidosConsumidosRecoger() {
-		boolean encontrado = false;
+	    boolean encontrado = false;
 
-		for (Pedido pedido : pedido) {
-			if ("RECOGER".equalsIgnoreCase(pedido.getTipo())) {
-				System.out.println(pedido);
-				encontrado = true;
-			}
-		}
+	    for (Pedido pedido : pedido) {
+	        if ("RECOGER".equalsIgnoreCase(pedido.getTipo())) {
+	            System.out.println(pedido);
+	            encontrado = true;
+	        }
+	    }
 
-		if (!encontrado) {
-			System.out.println("No hay pedidos para recoger.");
-		}
+	    if (!encontrado) {
+	        System.out.println("No hay pedidos para recoger.");
+	    }
 	}
-
+	
 	public void verPedidosConsumidosDomicilio() {
-		boolean encontrado = false;
+	    boolean encontrado = false;
 
-		for (Pedido pedido : pedido) {
-			if ("DOMICILIO".equalsIgnoreCase(pedido.getTipo())) {
-				System.out.println(pedido);
-				encontrado = true;
-			}
-		}
+	    for (Pedido pedido : pedido) {
+	        if ("DOMICILIO".equalsIgnoreCase(pedido.getTipo())) {
+	            System.out.println(pedido);
+	            encontrado = true;
+	        }
+	    }
 
-		if (!encontrado) {
-			System.out.println("No hay pedidos para llevar a domicilio.");
-		}
+	    if (!encontrado) {
+	        System.out.println("No hay pedidos para llevar a domicilio.");
+	    }
 	}
+	
+
 
 }

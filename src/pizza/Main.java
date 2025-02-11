@@ -181,7 +181,6 @@ public class Main {
 
 		if (clienteSeleccionado == null) {
 			System.out.println("Cliente no encontrado.");
-			return;
 		}
 
 		System.out.println("Lista de pizzas:");
@@ -190,6 +189,8 @@ public class Main {
 					"ID: " + pizza.getId() + ", Nombre: " + pizza.getNombre() + ", Precio: " + pizza.getPrecio() + "€");
 		}
 
+	
+		
 		System.out.print("Introduce el ID de la pizza: ");
 		int idPizza = scanner.nextInt();
 		scanner.nextLine();
@@ -216,6 +217,33 @@ public class Main {
 
 		}
 		System.out.println("Pedido añadido con éxito.");
+	}
+	
+	public static void  addPizzaPedido(Scanner scanner, Pizzeria pizzeria) {
+		
+
+		System.out.println("Lista de Pedidos:");
+		for (Pedido pedido : pizzeria.getPedido()) {
+			System.out.println("ID: " + pedido.getId());
+		}
+
+		System.out.print("Introduce el ID del pedido: ");
+		int idPedido = scanner.nextInt();
+		scanner.nextLine();
+		
+		System.out.println("Lista de pizzas:");
+		for (Pizza pizza : pizzeria.getPizza()) {
+			System.out.println(
+					"ID: " + pizza.getId() + ", Nombre: " + pizza.getNombre() + ", Precio: " + pizza.getPrecio() + "€");
+		}
+
+		
+		System.out.print("Introduce el ID de la pizza: ");
+		int idPizza = scanner.nextInt();
+		scanner.nextLine();
+		
+		
+		
 	}
 
 	public static void verCliente(List<Cliente> clientes) {
@@ -253,9 +281,12 @@ public class Main {
 	    }
 	}
 	
+	
 	public static void ultimoPedido(List<Pedido> pedidos) {
 		Pedido ultimoPedido=pedidos.get(pedidos.size()-1);
 		System.out.println("Ultimo pedido realizado"+ ultimoPedido);
 	}
+	
+	
 
 }

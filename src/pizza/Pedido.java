@@ -49,6 +49,11 @@ public class Pedido {
 	public double getTotal() {
 		return total;
 	}
+	
+
+	public List<Pizza> getPizzas() {
+		return pizzas;
+	}
 
 	public String getTipo() {
 		return this.tipo.toString();
@@ -65,6 +70,7 @@ public class Pedido {
 	public void setTipo(String tipo) {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}
+	
 
 	@Override
 	public String toString() {

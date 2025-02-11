@@ -104,7 +104,7 @@ public class Main {
 				break;
 			case 11:
 				System.out.println("Opción 11: Pedidos consumidos en el local");
-				verPedidoLocal(PizasLosGayos.getPedido());
+				PizasLosGayos.verPedidosConsumidosLocal();
 				break;
 			case 12:
 				System.out.println("Opción 12: Pedidos para recoger");
@@ -241,15 +241,6 @@ public class Main {
 	public static void verPedidos(List<Pedido> pedidos) {
 		for (Pedido pedi : pedidos) {
 			System.out.println(pedi);
-		}
-	}
-
-	public static void verPedidoLocal(List<Pedido> tipo) {
-		for (Pedido p : tipo) {
-
-			if (p.getTipo().equals(TipoPedido.LOCAL)) {
-				System.out.println(p);
-			}
 		}
 	}
 

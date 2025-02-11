@@ -1,5 +1,6 @@
 package pizza;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -100,7 +101,7 @@ public class Main {
 				break;
 
 			case 10:
-				System.out.println("Opción 10: Pedidos de hoy");
+			    verPedidosDeHoy(PizasLosGayos.getPedido());
 				break;
 			case 11:
 				PizasLosGayos.verPedidosConsumidosLocal();
@@ -241,6 +242,23 @@ public class Main {
 		for (Pedido pedi : pedidos) {
 			System.out.println(pedi);
 		}
+	}
+	
+	public static void verPedidosDeHoy(List<Pedido> pedidos) {
+	    LocalDate hoy = LocalDate.now(); 
+	    boolean hayPedidosHoy = false;
+
+	    System.out.println("Pedidos realizados hoy:");
+	    for (Pedido pedido : pedidos) {
+	        if (pedido.getFecha().equals(hoy)) { 
+	            System.out.println(pedido); 
+	            hayPedidosHoy = true;
+	        }
+	    }
+
+	    if (!hayPedidosHoy) {
+	        System.out.println("No se han realizado pedidos hoy.");
+	    }
 	}
 
 }

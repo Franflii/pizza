@@ -44,6 +44,14 @@ public class Pedido {
 		return this.tipo.toString();
 	}
 
+	public LocalDate getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
+	}
+
 	public void setTipo(String tipo) {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}

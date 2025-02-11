@@ -103,14 +103,13 @@ public class Main {
 				System.out.println("Opción 10: Pedidos de hoy");
 				break;
 			case 11:
-				System.out.println("Opción 11: Pedidos consumidos en el local");
 				PizasLosGayos.verPedidosConsumidosLocal();
 				break;
 			case 12:
-				System.out.println("Opción 12: Pedidos para recoger");
+				PizasLosGayos.verPedidosConsumidosRecoger();
 				break;
 			case 13:
-				System.out.println("Opción 13: Pedidos a domicilio");
+				PizasLosGayos.verPedidosConsumidosDomicilio();
 				break;
 			case 14:
 				System.out.println(Pizza.getPizzaMasCara());

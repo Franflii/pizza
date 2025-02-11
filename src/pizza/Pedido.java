@@ -23,6 +23,7 @@ public class Pedido {
 		this.fecha = LocalDate.now();
 		this.pizzaPedida = pizza;
 		this.pizzas.add(pizza);
+		this.total=pizza.getPrecio();
 
 	}
 

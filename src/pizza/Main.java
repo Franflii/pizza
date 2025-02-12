@@ -210,7 +210,7 @@ public class Main {
 		int idPizza;
 
 		do {
-			System.out.print("Introduce el ID de la pizza: ");
+			System.out.print("Introduce el ID de la pizza: (0 para salir) ");
 			idPizza = scanner.nextInt();
 
 			for (Pizza pizza : pizzeria.getPizza()) {

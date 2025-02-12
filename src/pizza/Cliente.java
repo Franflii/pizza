@@ -95,4 +95,11 @@ public class Cliente {
 		this.dineroDisponible = dineroDisponible;
 	}
 
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", email=" + email
+				+ ", telefono=" + telefono + ", dineroDisponible=" + dineroDisponible + "]";
+	}
+	
+
 }

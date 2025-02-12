@@ -84,4 +84,12 @@ public class Pedido {
 		this.pizzas.remove(indexPizza);
 	}
 
+	
+	@Override
+	public String toString() {
+		return "Pedido [id=" + id + ", cliente=" + cliente + ", fecha=" + fecha + ", total=" + total + ", tipo=" + tipo
+				+ ", pizzas=" + pizzas + "]";
+	}
+
+	
 }

@@ -22,7 +22,7 @@ public class Cliente {
 		setDireccion(direccion);
 		setEmail(email);
 		setTelefono(telefono);
-		setDineroDisponible(getDineroDisponible());
+		setDineroDisponible(dineroDisponible);
 	}
 
 	public int getId() {

@@ -50,7 +50,6 @@ public class Pedido {
 	public double getTotal() {
 		return total;
 	}
-	
 
 	public List<Pizza> getPizzas() {
 		return pizzas;
@@ -71,24 +70,18 @@ public class Pedido {
 	public void setTipo(String tipo) {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}
-	
+
 	public void addPizzaPedido(Pizza p) {
-		
+
 		pizzas.add(p);
 	}
-	
-	public void removePizzaPedido(Pizza pizza) {
-		for(Pizza p : pizzas) {
-			if(p.equals(pizza)) {
-				pizzas.remove(p);
-			}
-		}
+
+	public void agregarPizza(Pizza pizzaSeleccionada) {
+		this.pizzas.add(pizzaSeleccionada);
 	}
 
-	@Override
-	public String toString() {
-		return "Pedido [id=" + id + ", cliente=" + cliente + ", fecha=" + fecha + ", total=" + total + ", tipo=" + tipo
-				+ "pizas pedido=" + pizzas;
+	public void eliminarPizza(int indexPizza) {
+		this.pizzas.remove(indexPizza);
 	}
 
 }

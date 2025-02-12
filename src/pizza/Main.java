@@ -58,7 +58,10 @@ public class Main {
 			System.out.println("14. Pizza más cara");
 			System.out.println("15. Pizza más barata");
 			System.out.println("16. Último pedido realizado");
-			System.out.println("17. Salir");
+			System.out.println("17. Agregar pizza a pedido");
+			System.out.println("18. Eliminar pizza a pedido");
+
+			System.out.println("19. Salir");
 
 			option = scanner.nextInt();
 
@@ -82,10 +85,12 @@ public class Main {
 
 				break;
 			case 5:
-				PizasLosGayos.verPedidos();;
+				PizasLosGayos.verPedidos();
+				;
 				break;
 			case 6:
-				PizasLosGayos.verCliente();;
+				PizasLosGayos.verCliente();
+				;
 				break;
 			case 7:
 				PizasLosGayos.consultarTelefono(scanner);
@@ -101,7 +106,7 @@ public class Main {
 				break;
 
 			case 10:
-			    verPedidosDeHoy(PizasLosGayos.getPedido());
+				verPedidosDeHoy(PizasLosGayos.getPedido());
 				break;
 			case 11:
 				PizasLosGayos.verPedidosConsumidosLocal();
@@ -122,7 +127,11 @@ public class Main {
 				ultimoPedido(PizasLosGayos.getPedido());
 				break;
 			case 17:
-				System.out.println();
+				agregarPizzaAPedido(scanner, PizasLosGayos);
+				break;
+			case 18:
+				eliminarPizzaDePedido(scanner, PizasLosGayos);
+				break;
 			case 19:
 				System.out.println("Saliendo del programa...");
 				break;
@@ -131,7 +140,7 @@ public class Main {
 			}
 			// esto es para separar las iteracciones
 			System.out.println();
-		} while (option != 17);
+		} while (option != 19);
 
 	}
 
@@ -162,7 +171,6 @@ public class Main {
 	}
 
 	public static void nuevoPedido(Scanner scanner, Pizzeria pizzeria) {
-		
 
 		System.out.println("Lista de clientes:");
 		for (Cliente cliente : pizzeria.getCliente()) {
@@ -171,7 +179,6 @@ public class Main {
 
 		System.out.print("Introduce el ID del cliente: ");
 		int idCliente = scanner.nextInt();
-		
 
 		Cliente clienteSeleccionado = null;
 		for (Cliente cliente : pizzeria.getCliente()) {
@@ -183,7 +190,7 @@ public class Main {
 		if (clienteSeleccionado == null) {
 			System.out.println("Cliente no encontrado.");
 		}
-		
+
 		System.out.print("Introduce el tipo de pedido (LOCAL, DOMICILIO, RECOGER): ");
 		scanner.nextLine();
 		String tipo = scanner.nextLine().toUpperCase();
@@ -193,69 +200,147 @@ public class Main {
 		if (tipo.equals(TipoPedido.LOCAL)) {
 
 		}
-		
+
 		System.out.println("Lista de pizzas:");
 		for (Pizza pizza : pizzeria.getPizza()) {
 			System.out.println(
 					"ID: " + pizza.getId() + ", Nombre: " + pizza.getNombre() + ", Precio: " + pizza.getPrecio() + "€");
 		}
 
-	
 		int idPizza;
 
-		
 		do {
 			System.out.print("Introduce el ID de la pizza: ");
 			idPizza = scanner.nextInt();
-			
+
 			for (Pizza pizza : pizzeria.getPizza()) {
 				if (pizza.getId() == idPizza) {
-					 pedido.addPizzaPedido(pizza);
-		
+					pedido.addPizzaPedido(pizza);
+
 				}
 			}
 
 			if (idPizza == 0) {
 				System.out.println("Pizza no encontrada.");
 			}
-		
-		}
-		while(idPizza != 0);
-		
-		
 
-		
-
+		} while (idPizza != 0);
 
 		System.out.println("Pedido añadido con éxito.");
 	}
-	
 
-
-	
 	public static void verPedidosDeHoy(List<Pedido> pedidos) {
-	    LocalDate hoy = LocalDate.now(); 
-	    boolean hayPedidosHoy = false;
+		LocalDate hoy = LocalDate.now();
+		boolean hayPedidosHoy = false;
 
-	    System.out.println("Pedidos realizados hoy:");
-	    for (Pedido pedido : pedidos) {
-	        if (pedido.getFecha().equals(hoy)) { 
-	            System.out.println(pedido); 
-	            hayPedidosHoy = true;
-	        }
-	    }
+		System.out.println("Pedidos realizados hoy:");
+		for (Pedido pedido : pedidos) {
+			if (pedido.getFecha().equals(hoy)) {
+				System.out.println(pedido);
+				hayPedidosHoy = true;
+			}
+		}
 
-	    if (!hayPedidosHoy) {
-	        System.out.println("No se han realizado pedidos hoy.");
-	    }
+		if (!hayPedidosHoy) {
+			System.out.println("No se han realizado pedidos hoy.");
+		}
 	}
-	
-	
+
 	public static void ultimoPedido(List<Pedido> pedidos) {
-		Pedido ultimoPedido=pedidos.get(pedidos.size()-1);
-		System.out.println("Ultimo pedido realizado"+ ultimoPedido);
+		Pedido ultimoPedido = pedidos.get(pedidos.size() - 1);
+		System.out.println("Ultimo pedido realizado" + ultimoPedido);
 	}
-	
-	
+
+	public static void agregarPizzaAPedido(Scanner scanner, Pizzeria pizzeria) {
+		System.out.println("Lista de pedidos:");
+		for (Pedido pedido : pizzeria.getPedido()) {
+			System.out.println("ID: " + pedido.getId() + ", Cliente: " + pedido.getCliente().getNombre());
+		}
+
+		System.out.print("Introduce el ID del pedido: ");
+		int idPedido = scanner.nextInt();
+
+		Pedido pedidoSeleccionado = null;
+		for (Pedido pedido : pizzeria.getPedido()) {
+			if (pedido.getId() == idPedido) {
+				pedidoSeleccionado = pedido;
+				break;
+			}
+		}
+
+		if (pedidoSeleccionado == null) {
+			System.out.println("Pedido no encontrado.");
+			return;
+		}
+
+		System.out.println("Lista de pizzas disponibles:");
+		for (Pizza pizza : pizzeria.getPizza()) {
+			System.out.println(
+					"ID: " + pizza.getId() + ", Nombre: " + pizza.getNombre() + ", Precio: " + pizza.getPrecio() + "€");
+		}
+
+		System.out.print("Introduce el ID de la pizza a añadir: ");
+		int idPizza = scanner.nextInt();
+
+		Pizza pizzaSeleccionada = null;
+		for (Pizza pizza : pizzeria.getPizza()) {
+			if (pizza.getId() == idPizza) {
+				pizzaSeleccionada = pizza;
+				break;
+			}
+		}
+
+		if (pizzaSeleccionada == null) {
+			System.out.println("Pizza no encontrada.");
+			return;
+		}
+
+		pedidoSeleccionado.agregarPizza(pizzaSeleccionada);
+		System.out.println("Pizza añadida al pedido con éxito.");
+	}
+
+	public static void eliminarPizzaDePedido(Scanner scanner, Pizzeria pizzeria) {
+		System.out.println("Lista de pedidos:");
+		for (Pedido pedido : pizzeria.getPedido()) {
+			System.out.println("ID: " + pedido.getId() + ", Cliente: " + pedido.getCliente().getNombre());
+		}
+
+		System.out.print("Introduce el ID del pedido: ");
+		int idPedido = scanner.nextInt();
+
+		Pedido pedidoSeleccionado = null;
+		for (Pedido pedido : pizzeria.getPedido()) {
+			if (pedido.getId() == idPedido) {
+				pedidoSeleccionado = pedido;
+				break;
+			}
+		}
+
+		if (pedidoSeleccionado == null) {
+			System.out.println("Pedido no encontrado.");
+			return;
+		}
+
+		if (pedidoSeleccionado.getPizzas().isEmpty()) {
+			System.out.println("El pedido no tiene pizzas para eliminar.");
+			return;
+		}
+
+		System.out.println("Pizzas en el pedido:");
+		for (int i = 0; i < pedidoSeleccionado.getPizzas().size(); i++) {
+			System.out.println("ID: " + i + ", " + pedidoSeleccionado.getPizzas().get(i));
+		}
+
+		System.out.print("Introduce el número de la pizza a eliminar: ");
+		int indexPizza = scanner.nextInt();
+
+		if (indexPizza < 0 || indexPizza >= pedidoSeleccionado.getPizzas().size()) {
+			System.out.println("Pizza no encontrada en el pedido.");
+			return;
+		}
+
+		pedidoSeleccionado.eliminarPizza(indexPizza);
+		System.out.println("Pizza eliminada del pedido con éxito.");
+	}
 
 }

@@ -82,12 +82,4 @@ public class Pizza {
 
 	}
 
-//Métodos
-
-	@Override
-	public String toString() {
-		return "Pizza [nombre=" + nombre + ", ingredientes=" + ingredientes + ", precio=" + precio + ", contador="
-				+ contador + "]";
-	}
-
 }

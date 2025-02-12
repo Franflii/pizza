@@ -46,8 +46,14 @@ public class Pizzeria {
 	// Metodos
 
 	public void verPizzas() {
-		for (Pizza p : pizza) {
-			System.out.println(p);
+		System.out.println("🍕 Lista de Pizzas:");
+		System.out.println("==============================");
+		for (Pizza pizza : pizza) {
+			System.out.println("ID: " + pizza.getId());
+			System.out.println("Nombre: " + pizza.getNombre());
+			System.out.println("Ingredientes: " + pizza.getIngredientes());
+			System.out.println("Precio: " + pizza.getPrecio() + "€");
+			System.out.println("------------------------------");
 		}
 	}
 
@@ -64,14 +70,32 @@ public class Pizzeria {
 	}
 
 	public void verCliente() {
-		for (Cliente c : cliente) {
-			System.out.println(c);
+		System.out.println("📋 Lista de Clientes:");
+		System.out.println("==============================");
+		for (Cliente cliente : cliente) {
+			System.out.println("ID: " + cliente.getId());
+			System.out.println("Nombre: " + cliente.getNombre());
+			System.out.println("Dirección: " + cliente.getDireccion());
+			System.out.println("Email: " + cliente.getEmail());
+			System.out.println("Teléfono: " + cliente.getTelefono());
+			System.out.println("Saldo disponible: " + cliente.getDineroDisponible() + "€");
+			System.out.println("------------------------------");
 		}
 	}
 
-	public  void verPedidos() {
-		for (Pedido pedi : pedido) {
-			System.out.println(pedi);
+	public void verPedidos() {
+		for (Pedido pedido : pedido) {
+			System.out.println("Pedido ID: " + pedido.getId());
+			System.out.println("Cliente: " + pedido.getCliente().getNombre());
+			System.out.println("Tipo de pedido: " + pedido.getTipo());
+
+			// Mostramos las pizzas del pedido
+			System.out.println("Pizzas en el pedido:");
+			for (Pizza pizza : pedido.getPizzas()) {
+				System.out.println("  - " + pizza.getNombre() + " (" + pizza.getPrecio() + "€)");
+			}
+
+			System.out.println("-------------------------");
 		}
 	}
 
@@ -148,51 +172,50 @@ public class Pizzeria {
 		}
 		return clienteEsta;
 	}
+
 	public void verPedidosConsumidosLocal() {
-	    boolean encontrado = false;
+		boolean encontrado = false;
 
-	    for (Pedido pedido : pedido) {
-	        if ("LOCAL".equalsIgnoreCase(pedido.getTipo())) {
-	            System.out.println(pedido);
-	            encontrado = true;
-	        }
-	    }
+		for (Pedido pedido : pedido) {
+			if ("LOCAL".equalsIgnoreCase(pedido.getTipo())) {
+				System.out.println(pedido);
+				encontrado = true;
+			}
+		}
 
-	    if (!encontrado) {
-	        System.out.println("No hay pedidos consumidos en el local.");
-	    }
+		if (!encontrado) {
+			System.out.println("No hay pedidos consumidos en el local.");
+		}
 	}
-	
+
 	public void verPedidosConsumidosRecoger() {
-	    boolean encontrado = false;
+		boolean encontrado = false;
 
-	    for (Pedido pedido : pedido) {
-	        if ("RECOGER".equalsIgnoreCase(pedido.getTipo())) {
-	            System.out.println(pedido);
-	            encontrado = true;
-	        }
-	    }
+		for (Pedido pedido : pedido) {
+			if ("RECOGER".equalsIgnoreCase(pedido.getTipo())) {
+				System.out.println(pedido);
+				encontrado = true;
+			}
+		}
 
-	    if (!encontrado) {
-	        System.out.println("No hay pedidos para recoger.");
-	    }
+		if (!encontrado) {
+			System.out.println("No hay pedidos para recoger.");
+		}
 	}
-	
+
 	public void verPedidosConsumidosDomicilio() {
-	    boolean encontrado = false;
+		boolean encontrado = false;
 
-	    for (Pedido pedido : pedido) {
-	        if ("DOMICILIO".equalsIgnoreCase(pedido.getTipo())) {
-	            System.out.println(pedido);
-	            encontrado = true;
-	        }
-	    }
+		for (Pedido pedido : pedido) {
+			if ("DOMICILIO".equalsIgnoreCase(pedido.getTipo())) {
+				System.out.println(pedido);
+				encontrado = true;
+			}
+		}
 
-	    if (!encontrado) {
-	        System.out.println("No hay pedidos para llevar a domicilio.");
-	    }
+		if (!encontrado) {
+			System.out.println("No hay pedidos para llevar a domicilio.");
+		}
 	}
-	
-
 
 }

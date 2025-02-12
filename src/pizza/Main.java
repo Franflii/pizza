@@ -207,6 +207,7 @@ public class Main {
 		}
 
 		System.out.print("Introduce el tipo de pedido (LOCAL, DOMICILIO, RECOGER): ");
+		scanner.nextLine();
 		String tipo = scanner.nextLine().toUpperCase();
 
 		Pedido pedido = new Pedido(clienteSeleccionado, tipo, pizzaSeleccionada);

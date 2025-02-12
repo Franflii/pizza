@@ -1,6 +1,7 @@
 package pizza;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -16,6 +17,7 @@ public class Pedido {
 	private int ultimoPedido = 0;
 
 	public Pedido(Cliente cliente, String tipo, Pizza pizza) {
+		this.pizzas = new ArrayList<Pizza>();
 
 		this.id = contador++;
 		setCliente(cliente);

@@ -78,14 +78,14 @@ public class Main {
 				nuevoPedido(scanner, PizasLosGayos);
 				break;
 			case 4:
-				verPizzas(PizasLosGayos.getPizza());
+				PizasLosGayos.verPizzas();
 
 				break;
 			case 5:
 				verPedidos(PizasLosGayos.getPedido());
 				break;
 			case 6:
-				verCliente(PizasLosGayos.getCliente());
+				PizasLosGayos.verCliente();;
 				break;
 			case 7:
 				PizasLosGayos.consultarTelefono(scanner);
@@ -122,6 +122,8 @@ public class Main {
 				ultimoPedido(PizasLosGayos.getPedido());
 				break;
 			case 17:
+				System.out.println();
+			case 19:
 				System.out.println("Saliendo del programa...");
 				break;
 			default:
@@ -181,7 +183,17 @@ public class Main {
 		if (clienteSeleccionado == null) {
 			System.out.println("Cliente no encontrado.");
 		}
+		
+		System.out.print("Introduce el tipo de pedido (LOCAL, DOMICILIO, RECOGER): ");
+		scanner.nextLine();
+		String tipo = scanner.nextLine().toUpperCase();
 
+		Pedido pedido = new Pedido(clienteSeleccionado, tipo);
+		pizzeria.addPedido(pedido);
+		if (tipo.equals(TipoPedido.LOCAL)) {
+
+		}
+		
 		System.out.println("Lista de pizzas:");
 		for (Pizza pizza : pizzeria.getPizza()) {
 			System.out.println(
@@ -189,47 +201,35 @@ public class Main {
 		}
 
 	
-		
-		System.out.print("Introduce el ID de la pizza: ");
-		int idPizza = scanner.nextInt();
-		
+		int idPizza;
 
-		Pizza pizzaSeleccionada = null;
-		for (Pizza pizza : pizzeria.getPizza()) {
-			if (pizza.getId() == idPizza) {
-				pizzaSeleccionada = pizza;
-	
+		
+		do {
+			System.out.print("Introduce el ID de la pizza: ");
+			idPizza = scanner.nextInt();
+			
+			for (Pizza pizza : pizzeria.getPizza()) {
+				if (pizza.getId() == idPizza) {
+					 pedido.addPizzaPedido(pizza);
+		
+				}
 			}
+
+			if (idPizza == 0) {
+				System.out.println("Pizza no encontrada.");
+			}
+		
 		}
+		while(idPizza != 0);
+		
+		
 
-		if (pizzaSeleccionada == null) {
-			System.out.println("Pizza no encontrada.");
-		}
+		
 
-		System.out.print("Introduce el tipo de pedido (LOCAL, DOMICILIO, RECOGER): ");
-		scanner.nextLine();
-		String tipo = scanner.nextLine().toUpperCase();
 
-		Pedido pedido = new Pedido(clienteSeleccionado, tipo, pizzaSeleccionada);
-		pizzeria.addPedido(pedido);
-		if (tipo.equals(TipoPedido.LOCAL)) {
-
-		}
 		System.out.println("Pedido añadido con éxito.");
 	}
 	
-
-	public static void verCliente(List<Cliente> clientes) {
-		for (Cliente c : clientes) {
-			System.out.println(c);
-		}
-	}
-
-	public static void verPizzas(List<Pizza> pizzas) {
-		for (Pizza p : pizzas) {
-			System.out.println(p);
-		}
-	}
 
 	public static void verPedidos(List<Pedido> pedidos) {
 		for (Pedido pedi : pedidos) {

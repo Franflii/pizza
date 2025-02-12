@@ -46,9 +46,9 @@ public class Pizzeria {
 	// Metodos
 
 	public void verPizzas() {
-
-		System.out.println("Lista de Pizzas disponibles: " + pizza);
-
+		for (Pizza p : pizza) {
+			System.out.println(p);
+		}
 	}
 
 	public void addCliente(Cliente clienteNuevo) {
@@ -63,9 +63,10 @@ public class Pizzeria {
 		this.pedido.add(pedidoNuevo);
 	}
 
-	public void VerClientes() {
-
-		System.out.println("Clientes registrados: " + cliente);
+	public void verCliente() {
+		for (Cliente c : cliente) {
+			System.out.println(c);
+		}
 	}
 
 	public void VerPedidos() {

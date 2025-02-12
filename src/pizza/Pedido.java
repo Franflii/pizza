@@ -10,22 +10,20 @@ public class Pedido {
 	private LocalDate fecha;
 	private double total;
 	private TipoPedido tipo;
-	private Pizza pizzaPedida;
+//	private Pizza pizzaPedida;
 	private List<Pizza> pizzas;
 
 	private static int contador = 1;
 	private int ultimoPedido = 0;
 
-	public Pedido(Cliente cliente, String tipo, Pizza pizza) {
+	public Pedido(Cliente cliente, String tipo) {
 		this.pizzas = new ArrayList<Pizza>();
 
 		this.id = contador++;
 		setCliente(cliente);
 		setTipo(tipo);
 		this.fecha = LocalDate.now();
-		this.pizzaPedida = pizza;
-		this.pizzas.add(pizza);
-		this.total=pizza.getPrecio();
+//		this.pizzaPedida = pizza;
 
 	}
 
@@ -74,11 +72,23 @@ public class Pedido {
 		this.tipo = TipoPedido.valueOf(tipo);
 	}
 	
+	public void addPizzaPedido(Pizza p) {
+		
+		pizzas.add(p);
+	}
+	
+	public void removePizzaPedido(Pizza pizza) {
+		for(Pizza p : pizzas) {
+			if(p.equals(pizza)) {
+				pizzas.remove(p);
+			}
+		}
+	}
 
 	@Override
 	public String toString() {
 		return "Pedido [id=" + id + ", cliente=" + cliente + ", fecha=" + fecha + ", total=" + total + ", tipo=" + tipo
-				+ ", pizzaPedida=" + pizzaPedida + "]";
+				+ "pizas pedido=" + pizzas;
 	}
 
 }

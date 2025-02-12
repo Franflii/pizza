@@ -82,7 +82,7 @@ public class Main {
 
 				break;
 			case 5:
-				verPedidos(PizasLosGayos.getPedido());
+				PizasLosGayos.verPedidos();;
 				break;
 			case 6:
 				PizasLosGayos.verCliente();;
@@ -231,11 +231,7 @@ public class Main {
 	}
 	
 
-	public static void verPedidos(List<Pedido> pedidos) {
-		for (Pedido pedi : pedidos) {
-			System.out.println(pedi);
-		}
-	}
+
 	
 	public static void verPedidosDeHoy(List<Pedido> pedidos) {
 	    LocalDate hoy = LocalDate.now(); 

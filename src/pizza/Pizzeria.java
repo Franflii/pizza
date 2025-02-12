@@ -69,8 +69,10 @@ public class Pizzeria {
 		}
 	}
 
-	public void VerPedidos() {
-		System.out.println("Pedido " + pedido);
+	public  void verPedidos() {
+		for (Pedido pedi : pedido) {
+			System.out.println(pedi);
+		}
 	}
 
 	public void addPizza(Pizza pizzaNueva) {

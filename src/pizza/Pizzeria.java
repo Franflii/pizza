@@ -1,5 +1,6 @@
 package pizza;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -216,6 +217,26 @@ public class Pizzeria {
 		if (!encontrado) {
 			System.out.println("No hay pedidos para llevar a domicilio.");
 		}
+	}
+	public  void verPedidosDeHoy() {
+		LocalDate hoy = LocalDate.now();
+		boolean hayPedidosHoy = false;
+
+		System.out.println("Pedidos realizados hoy:");
+		for (Pedido pedido : pedido) {
+			if (pedido.getFecha().equals(hoy)) {
+				System.out.println(pedido);
+				hayPedidosHoy = true;
+			}
+		}
+
+		if (!hayPedidosHoy) {
+			System.out.println("No se han realizado pedidos hoy.");
+		}
+	}
+	public  void ultimoPedido() {
+		Pedido ultimoPedido = pedido.get(pedido.size() - 1);
+		System.out.println("Ultimo pedido realizado" + ultimoPedido);
 	}
 
 }

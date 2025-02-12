@@ -106,7 +106,7 @@ public class Main {
 				break;
 
 			case 10:
-				verPedidosDeHoy(PizasLosGayos.getPedido());
+				PizasLosGayos.verPedidosDeHoy();
 				break;
 			case 11:
 				PizasLosGayos.verPedidosConsumidosLocal();
@@ -124,7 +124,7 @@ public class Main {
 				System.out.println(Pizza.getPizzaMasBarata());
 				break;
 			case 16:
-				ultimoPedido(PizasLosGayos.getPedido());
+				PizasLosGayos.ultimoPedido();
 				break;
 			case 17:
 				agregarPizzaAPedido(scanner, PizasLosGayos);
@@ -227,28 +227,6 @@ public class Main {
 		} while (idPizza != 0);
 
 		System.out.println("Pedido añadido con éxito.");
-	}
-
-	public static void verPedidosDeHoy(List<Pedido> pedidos) {
-		LocalDate hoy = LocalDate.now();
-		boolean hayPedidosHoy = false;
-
-		System.out.println("Pedidos realizados hoy:");
-		for (Pedido pedido : pedidos) {
-			if (pedido.getFecha().equals(hoy)) {
-				System.out.println(pedido);
-				hayPedidosHoy = true;
-			}
-		}
-
-		if (!hayPedidosHoy) {
-			System.out.println("No se han realizado pedidos hoy.");
-		}
-	}
-
-	public static void ultimoPedido(List<Pedido> pedidos) {
-		Pedido ultimoPedido = pedidos.get(pedidos.size() - 1);
-		System.out.println("Ultimo pedido realizado" + ultimoPedido);
 	}
 
 	public static void agregarPizzaAPedido(Scanner scanner, Pizzeria pizzeria) {

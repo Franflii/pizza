@@ -74,7 +74,7 @@ public class Pizza {
 
 	public void setPrecio(double precio) {
 
-		if (this.precio > 0) {
+		if (this.precio <= 0) {
 			throw new IllegalArgumentException("El precio de las pizzas debe ser más de 0€");
 		}
 

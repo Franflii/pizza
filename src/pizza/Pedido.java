@@ -1,6 +1,7 @@
 package pizza;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Pedido {
 	private List<Pizza> pizzas;
 
 	private static int contador = 1;
-	private int ultimoPedido = 0;
+	private static Pedido ultimoPedido;
 
 	public Pedido(Cliente cliente, String tipo) {
 		this.pizzas = new ArrayList<Pizza>();
@@ -24,10 +25,18 @@ public class Pedido {
 		setTipo(tipo);
 		this.fecha = LocalDate.now();
 //		this.pizzaPedida = pizza;
-
 	}
 
-	public int getUltimoPedido() {
+	public Pedido(Cliente cliente, String tipo, LocalDateTime fecha) {
+		this.pizzas = new ArrayList<Pizza>();
+		this.id = contador++;
+		setCliente(cliente);
+		setTipo(tipo);
+		this.fecha = LocalDate.now().minusDays(1);
+		ultimoPedido = this;
+	}
+	
+	public static Pedido getUltimoPedido() {
 		return ultimoPedido;
 	}
 
@@ -80,8 +89,17 @@ public class Pedido {
 		this.pizzas.add(pizzaSeleccionada);
 	}
 
-	public void eliminarPizza(int indexPizza) {
-		this.pizzas.remove(indexPizza);
+	public void eliminarPizza(int nPizza) {
+		Pizza eliminada =null;
+		for (Pizza pizza : pizzas) {
+	
+			if (pizza.getId()==nPizza) {
+				eliminada=pizza;
+				
+			}
+			
+		}
+		this.pizzas.remove(eliminada);
 	}
 
 	@Override

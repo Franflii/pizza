@@ -1,5 +1,6 @@
 package pizza;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -28,6 +29,8 @@ public class Main {
 		p.addPizza(new Pizza("Cuatro Quesos", "Mozzarella, Gorgonzola, Parmesano, Cheddar", 10.0));
 		p.addPizza(new Pizza("Hawaiana", "Tomate, Queso Mozzarella, Jamón, Piña", 9.0));
 		p.addPizza(new Pizza("BBQ Pollo", "Salsa BBQ, Queso, Pollo, Cebolla", 11.0));
+		
+		p.addPedido(new Pedido(p.getCliente().get(0), "DOMICILIO", LocalDateTime.now()));
 	}
 
 	public static void menu() {
@@ -118,7 +121,8 @@ public class Main {
 				System.out.println(Pizza.getPizzaMasBarata());
 				break;
 			case 16:
-				PizasLosGayos.ultimoPedido();
+				
+				System.out.println(Pedido.getUltimoPedido());
 				break;
 			case 17:
 				agregarPizzaAPedido(scanner, PizasLosGayos);
@@ -300,16 +304,17 @@ public class Main {
 
 		System.out.println("Pizzas en el pedido:");
 		for (int i = 0; i < pedidoSeleccionado.getPizzas().size(); i++) {
-			System.out.println("ID: " + i + ", " + pedidoSeleccionado.getPizzas().get(i));
+			System.out.println("ID: "+ pedidoSeleccionado.getPizzas().get(i).getId());
 		}
+		
 
 		System.out.print("Introduce el número de la pizza a eliminar: ");
 		int nPizza = scanner.nextInt();
 
-		if (nPizza < 0 || nPizza >= pedidoSeleccionado.getPizzas().size()) {
-			System.out.println("Pizza no encontrada en el pedido.");
-			return;
-		}
+		//if (nPizza < 0 || nPizza >= pedidoSeleccionado.getPizzas().size()) {
+			//System.out.println("Pizza no encontrada en el pedido.");
+			//return;
+		//}
 
 		pedidoSeleccionado.eliminarPizza(nPizza);
 		System.out.println("Pizza eliminada del pedido con éxito.");

@@ -11,6 +11,7 @@ public class Pizzeria {
 	private List<Cliente> cliente;
 	private List<Pedido> pedido;
 	private Cliente clientee;
+	
 
 	// Constructores
 
@@ -19,6 +20,8 @@ public class Pizzeria {
 		this.cliente = new ArrayList<Cliente>();
 		this.pedido = new ArrayList<Pedido>();
 	}
+	
+	
 
 	public List<Pizza> getPizza() {
 		return pizza;
@@ -115,13 +118,13 @@ public class Pizzeria {
 	}
 
 	// Método para buscar un cliente por su número de teléfono
-	public void consultarTelefono(Scanner scanner) {
-		System.out.println("Dime el numero que quieres buscar");
-		String tlf = scanner.next();
+	public void consultarTelefono(String telefono) {
+//		System.out.println("Dime el numero que quieres buscar");
+//		String tlf = scanner.next();
 		boolean encontrado = false;
 
 		for (Cliente cliente2 : cliente) {
-			if (cliente2.getTelefono().equals(tlf)) {
+			if (cliente2.getTelefono().contains(telefono)) {
 				System.out.println("El cliente es: " + cliente2);
 				encontrado = true;
 				break;
@@ -237,7 +240,7 @@ public class Pizzeria {
 
 		System.out.println("Pedidos realizados hoy:");
 		for (Pedido pedido : pedido) {
-			if (pedido.getFecha().equals(hoy)) {
+			if (pedido.getFecha().equals(LocalDate.now().minusDays(1))) {
 				System.out.println(pedido);
 				hayPedidosHoy = true;
 			}
@@ -249,8 +252,8 @@ public class Pizzeria {
 	}
 
 	// Método para ver el último pedido realizado
-	public void ultimoPedido() {
-		Pedido ultimoPedido = pedido.get(pedido.size() - 1);
-		System.out.println("Último pedido realizado: " + ultimoPedido);
-	}
+//	public void ultimoPedido() {
+//		Pedido ultimoPedido = pedido.get(pedido.size() - 1);
+//		System.out.println("Último pedido realizado: " + ultimoPedido);
+//	}
 }

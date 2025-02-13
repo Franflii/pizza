@@ -3,7 +3,6 @@ package pizza;
 public class Cliente {
 
 	// Atributos
-
 	private int id;
 	private String nombre;
 	private String direccion;
@@ -11,10 +10,10 @@ public class Cliente {
 	private String telefono;
 	private double dineroDisponible;
 
-	// Atributos estáticos
+	// Atributo estático
 	private static int contador = 1;
-	// Constructores
 
+	// Constructor
 	public Cliente(String nombre, String direccion, String email, String telefono, double dineroDisponible) {
 		this.id = contador++;
 
@@ -25,23 +24,21 @@ public class Cliente {
 		setDineroDisponible(dineroDisponible);
 	}
 
+	public Cliente() {
+	}
+
 	public int getId() {
 		return id;
 	}
 
-	public Cliente() {
-
-	}
-
-	// Setter getter
+	// Getters y Setters
 
 	public String getNombre() {
 		return nombre;
 	}
 
 	private void setNombre(String nombre) {
-
-		if (nombre == null || nombre.isBlank() == true) {
+		if (nombre == null || nombre.isBlank()) {
 			throw new IllegalArgumentException("El nombre no puede estar en blanco ni puede ser nulo.");
 		}
 		this.nombre = nombre;
@@ -52,9 +49,8 @@ public class Cliente {
 	}
 
 	private void setDireccion(String direccion) {
-
-		if (direccion == null || direccion.isBlank() == true) {
-			throw new IllegalArgumentException("La direccion no puede estar en blanco ni puede ser nula.");
+		if (direccion == null || direccion.isBlank()) {
+			throw new IllegalArgumentException("La dirección no puede estar en blanco ni puede ser nula.");
 		}
 		this.direccion = direccion;
 	}
@@ -64,8 +60,7 @@ public class Cliente {
 	}
 
 	private void setEmail(String email) {
-
-		if (email == null || email.isBlank() == true) {
+		if (email == null || email.isBlank()) {
 			throw new IllegalArgumentException("El email no puede estar en blanco ni puede ser nulo.");
 		}
 		this.email = email;
@@ -76,9 +71,8 @@ public class Cliente {
 	}
 
 	private void setTelefono(String telefono) {
-
-		if (telefono == null || telefono.isBlank() == true) {
-			throw new IllegalArgumentException("El telefono no puede estar en blanco ni puede ser nulo.");
+		if (telefono == null || telefono.isBlank()) {
+			throw new IllegalArgumentException("El teléfono no puede estar en blanco ni puede ser nulo.");
 		}
 		this.telefono = telefono;
 	}
@@ -88,7 +82,6 @@ public class Cliente {
 	}
 
 	private void setDineroDisponible(double dineroDisponible) {
-
 		if (dineroDisponible < 0) {
 			throw new IllegalArgumentException("No tienes dinero disponible");
 		}
@@ -100,6 +93,5 @@ public class Cliente {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", email=" + email
 				+ ", telefono=" + telefono + ", dineroDisponible=" + dineroDisponible + "]";
 	}
-	
 
 }

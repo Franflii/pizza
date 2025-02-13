@@ -86,6 +86,5 @@ public class Pizza {
 	public String toString() {
 		return "Pizza [id=" + id + ", nombre=" + nombre + ", ingredientes=" + ingredientes + ", precio=" + precio + "]";
 	}
-	
 
 }

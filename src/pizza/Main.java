@@ -1,7 +1,5 @@
 package pizza;
 
-import java.time.LocalDate;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -69,9 +67,6 @@ public class Main {
 			case 1:
 				Pizza p1 = nuevaPizza(scanner);
 				PizasLosGayos.addPizza(p1);
-
-				System.out.println("Opción 1: Nueva pizza");
-
 				break;
 			case 2:
 				Cliente c1 = nuevoCliente(scanner);
@@ -104,7 +99,6 @@ public class Main {
 				String ingr = scanner.nextLine();
 				PizasLosGayos.consultarPizzaNOIngrediente(scanner);
 				break;
-
 			case 10:
 				PizasLosGayos.verPedidosDeHoy();
 				break;
@@ -310,14 +304,14 @@ public class Main {
 		}
 
 		System.out.print("Introduce el número de la pizza a eliminar: ");
-		int indexPizza = scanner.nextInt();
+		int nPizza = scanner.nextInt();
 
-		if (indexPizza < 0 || indexPizza >= pedidoSeleccionado.getPizzas().size()) {
+		if (nPizza < 0 || nPizza >= pedidoSeleccionado.getPizzas().size()) {
 			System.out.println("Pizza no encontrada en el pedido.");
 			return;
 		}
 
-		pedidoSeleccionado.eliminarPizza(indexPizza);
+		pedidoSeleccionado.eliminarPizza(nPizza);
 		System.out.println("Pizza eliminada del pedido con éxito.");
 	}
 

@@ -44,10 +44,11 @@ public class Pizzeria {
 		this.pedido = pedido;
 	}
 
-	// Metodos
+	// Métodos
 
+	// Método para ver todas las pizzas disponibles en la pizzería
 	public void verPizzas() {
-		System.out.println("🍕 Lista de Pizzas:");
+		System.out.println("Lista de Pizzas:");
 		System.out.println("==============================");
 		for (Pizza pizza : pizza) {
 			System.out.println("ID: " + pizza.getId());
@@ -58,20 +59,22 @@ public class Pizzeria {
 		}
 	}
 
+	// Agregar un nuevo cliente a la lista
 	public void addCliente(Cliente clienteNuevo) {
 		if (clienteNuevo == null) {
 			throw new IllegalArgumentException("No puede ser null el cliente");
 		}
-
 		this.cliente.add(clienteNuevo);
 	}
 
+	// Agregar un nuevo pedido a la lista
 	public void addPedido(Pedido pedidoNuevo) {
 		this.pedido.add(pedidoNuevo);
 	}
 
+	// Método para ver todos los clientes registrados en la pizzería
 	public void verCliente() {
-		System.out.println("📋 Lista de Clientes:");
+		System.out.println("Lista de Clientes:");
 		System.out.println("==============================");
 		for (Cliente cliente : cliente) {
 			System.out.println("ID: " + cliente.getId());
@@ -84,30 +87,34 @@ public class Pizzeria {
 		}
 	}
 
+	// Método para mostrar los pedidos realizados junto con su total
 	public void verPedidos() {
 		for (Pedido pedido : pedido) {
 			System.out.println("Pedido ID: " + pedido.getId());
 			System.out.println("Cliente: " + pedido.getCliente().getNombre());
 			System.out.println("Tipo de pedido: " + pedido.getTipo());
 
-			// Mostramos las pizzas del pedido
 			System.out.println("Pizzas en el pedido:");
+			double total = 0; // Variable para almacenar el total del pedido
 			for (Pizza pizza : pedido.getPizzas()) {
 				System.out.println("  - " + pizza.getNombre() + " (" + pizza.getPrecio() + "€)");
+				total += pizza.getPrecio(); // Sumar el precio de cada pizza al total
 			}
 
+			System.out.println("Total del pedido: " + total + "€");
 			System.out.println("-------------------------");
 		}
 	}
 
+	// Método para agregar una nueva pizza al menú
 	public void addPizza(Pizza pizzaNueva) {
 		if (pizzaNueva == null) {
 			throw new IllegalArgumentException("No puede haber pedido sin pizza");
 		}
-
 		this.pizza.add(pizzaNueva);
 	}
 
+	// Método para buscar un cliente por su número de teléfono
 	public void consultarTelefono(Scanner scanner) {
 		System.out.println("Dime el numero que quieres buscar");
 		String tlf = scanner.next();
@@ -126,6 +133,7 @@ public class Pizzeria {
 		}
 	}
 
+	// Método para buscar pizzas que contengan un ingrediente específico
 	public void consultarPizzaIngrediente(Scanner scanner) {
 		System.out.println("Dime un ingrediente");
 		String ingrediente = scanner.next().toLowerCase();
@@ -133,17 +141,16 @@ public class Pizzeria {
 
 		for (Pizza p : pizza) {
 			if (p.getIngredientes().toLowerCase().contains(ingrediente)) {
-
-				System.out.println("La pizza" + p + "si contiene ese ingrediente");
+				System.out.println("La pizza " + p + " sí contiene ese ingrediente");
 				encontrado = true;
 			}
 		}
 		if (!encontrado) {
 			System.out.println("No se ha encontrado ninguna pizza con ese ingrediente");
 		}
-
 	}
 
+	// Método para buscar pizzas que NO contengan un ingrediente específico
 	public void consultarPizzaNOIngrediente(Scanner scanner) {
 		System.out.println("Dime un ingrediente que no deba contener la pizza:");
 		String ingredienteExcluido = scanner.next().toLowerCase();
@@ -162,6 +169,7 @@ public class Pizzeria {
 		}
 	}
 
+	// Método para verificar si un cliente con un ID específico está registrado
 	public Cliente estaIdCliente(int idcCliente) {
 		boolean esta = false;
 		Cliente clienteEsta = clientee;
@@ -174,6 +182,7 @@ public class Pizzeria {
 		return clienteEsta;
 	}
 
+	// Método para ver los pedidos consumidos en el local
 	public void verPedidosConsumidosLocal() {
 		boolean encontrado = false;
 
@@ -189,6 +198,7 @@ public class Pizzeria {
 		}
 	}
 
+	// Método para ver los pedidos que son para recoger en tienda
 	public void verPedidosConsumidosRecoger() {
 		boolean encontrado = false;
 
@@ -204,6 +214,7 @@ public class Pizzeria {
 		}
 	}
 
+	// Método para ver los pedidos a domicilio
 	public void verPedidosConsumidosDomicilio() {
 		boolean encontrado = false;
 
@@ -218,7 +229,9 @@ public class Pizzeria {
 			System.out.println("No hay pedidos para llevar a domicilio.");
 		}
 	}
-	public  void verPedidosDeHoy() {
+
+	// Método para ver los pedidos realizados hoy
+	public void verPedidosDeHoy() {
 		LocalDate hoy = LocalDate.now();
 		boolean hayPedidosHoy = false;
 
@@ -234,9 +247,10 @@ public class Pizzeria {
 			System.out.println("No se han realizado pedidos hoy.");
 		}
 	}
-	public  void ultimoPedido() {
-		Pedido ultimoPedido = pedido.get(pedido.size() - 1);
-		System.out.println("Ultimo pedido realizado" + ultimoPedido);
-	}
 
+	// Método para ver el último pedido realizado
+	public void ultimoPedido() {
+		Pedido ultimoPedido = pedido.get(pedido.size() - 1);
+		System.out.println("Último pedido realizado: " + ultimoPedido);
+	}
 }
